@@ -3,12 +3,11 @@ import type { Component } from "solid-js";
 export const Chart: Component = () => (
   <svg
     width="535"
-    class="w-full"
+    class="max-w-full"
     height="523"
     viewBox="0 0 535 523"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <g filter="url(#filter0_d_18_6884)">
       <rect

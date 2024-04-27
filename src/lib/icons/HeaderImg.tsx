@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 
 export const HeaderImg: Component = () => (
-  <div class="absolute inset-0 w-full h-full object-cover flex justify-end">
+  <div class="absolute inset-0 w-full h-full object-cover flex justify-end z-[-1]">
     <svg
       width="830"
       height="810"

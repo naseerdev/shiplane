@@ -2,7 +2,6 @@ import { createEffect, createSignal, Show, type Component } from "solid-js";
 
 const Navbar: Component = () => {
   const [open, setOpen] = createSignal<boolean>(false);
-
   createEffect(() => {
     const mode = localStorage.getItem("mode");
     if (mode === "dark") {
@@ -11,7 +10,6 @@ const Navbar: Component = () => {
   });
 
   const handleeChangeDarkMode = () => {
-    console.log('fdas')
     const checkMode = localStorage.getItem("mode");
     if (checkMode === "dark") {
       document.documentElement.classList.remove("dark");
@@ -77,13 +75,13 @@ const Navbar: Component = () => {
               <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-8">
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white font-gilroy-bold cursor-pointer"
+                  class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white font-gilroy-bold"
                 >
                   Home
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white hover:font-gilroy-bold hover:font-bold cursor-pointer"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-white hover:font-gilroy-bold hover:font-bold"
                 >
                   About Us
                 </a>
@@ -123,7 +121,7 @@ const Navbar: Component = () => {
           </div>
         </div>
         <Show when={open()}>
-          <div class="md:hidden bg-indigo-600" id="mobile-menu">
+          <div class="md:hidden bg-indigo-600 ms-3 me-3" id="mobile-menu">
             <div class="space-y-1 pb-3 pt-2">
               <a
                 href="#"
@@ -133,19 +131,19 @@ const Navbar: Component = () => {
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6 cursor-pointer"
+                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] font-[500] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 About Us
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] font-[500] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Pricing
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] font-[500] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Features
               </a>

@@ -1,3 +1,6 @@
+/* html {
+  @apply overflow-x-hidden
+} */
 html {
   font-family: "gilroy-regular";
 }

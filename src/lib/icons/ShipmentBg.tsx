@@ -3,12 +3,11 @@ import type { Component } from "solid-js";
 export const ShipmentBg: Component = () => (
   <svg
     width="581"
-    class="w-full"
+    class="ml-[20px] w-auto max-w-[100%]"
     height="525"
     viewBox="0 0 581 525"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <g filter="url(#filter0_d_18_6830)">
       <rect
@@ -70,7 +69,6 @@ export const ShipmentBg: Component = () => (
         height="1"
       >
         <use
-          xlink:href="#image0_18_6830"
           transform="scale(0.0013587 0.00156495)"
         />
       </pattern>

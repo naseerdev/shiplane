@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 
 export const HeroImg: Component = () => (
-  <div class="absolute inset-0 w-full h-full top-20 object-cover flex justify-end">
+  <div class="absolute top-20 right-0 object-cover flex justify-end">
     <svg
       width="756"
       height="785"

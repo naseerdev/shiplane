@@ -8,7 +8,7 @@ const ShipmentTrack = () => {
         All in one place
       </p>
       <div class="flex flex-col md:flex-row justify-center items-center mt-16 ">
-        <div class="max-w-[468px] flex flex-col gap-4">
+        <div class="max-w-[468px] flex flex-col gap-4 ps-2">
           <p class="text-4xl font-bold text-primary dark:text-white">
             Why Irsal?
           </p>
