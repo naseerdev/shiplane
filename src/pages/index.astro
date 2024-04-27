@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Hero from '../components/header/Hero';
+import TrustUs from '../components/TrustUs/TrustUs';
+import ShipmentTrack from '../components/ShipmentTrack/ShipmentTrack';
+import SmartFeatures from "../components/SmartFeature/SmartFeatures"
+import Analytics from "../components/Analytics/Analytics"
+import Carrier from "../components/Carrier/Carrier"
+import PricePlan from "../components/PricePlan/PricePlan";
+import FaqSection from "../components/FAQ/FaqSection";
+import GetStarted from "../components/GetStarted/GetStarted";
+ 
+---
+
+<Layout title="Welcome to Astro.">
+     <Hero />
+     <!-- <TrustUs client:only="solid-js"/> -->
+     <ShipmentTrack client:only="solid-js" />
+     <SmartFeatures client:only="solid-js" />
+     <Analytics client:only="solid-js" />
+     <Carrier client:only="solid-js"/>
+     <FaqSection client:only="solid-js"/>
+     <PricePlan client:only="solid-js"/>
+     <GetStarted client:only="solid-js"/>
+  </Layout>
+
