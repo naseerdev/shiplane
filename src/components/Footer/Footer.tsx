@@ -3,17 +3,14 @@ import { Phone } from "../../lib/icons/Phone";
 
 const Footer = () => {
   return (
-    <div class="relative mx-auto max-w-7xl">
+    <div class="relative mx-auto px-10 md:max-w-7xl">
       <footer class="" aria-labelledby="footer-heading">
-        <h2 id="footer-heading" class="sr-only">
-          Footer
-        </h2>
         <div class=" pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="grid grid-cols-2 gap-8 xl:col-span-2">
               <div class="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 class="text-[30px] font-semibold leading-6 text-main dark:text-primary">
+                  <h3 class=" text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary">
                     Irsal
                   </h3>
                   <ul role="list" class="mt-6 space-y-4">
@@ -38,7 +35,7 @@ const Footer = () => {
                   </ul>
                 </div>
                 <div class="mt-10 md:mt-0">
-                  <h3 class="text-[30px] font-semibold leading-6 text-main dark:text-primary">
+                  <h3 class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary">
                     Links
                   </h3>
                   <ul role="list" class="mt-6 space-y-4">
@@ -79,7 +76,7 @@ const Footer = () => {
               </div>
               <div class="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 class="text-[30px] font-semibold leading-6 text-main dark:text-primary">
+                  <h3 class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary">
                     Legal
                   </h3>
                   <ul role="list" class="mt-6 space-y-4">
@@ -110,7 +107,7 @@ const Footer = () => {
                   </ul>
                 </div>
                 <div class="mt-10 md:mt-0">
-                  <h3 class="text-[30px] font-semibold leading-6 text-main dark:text-primary">
+                  <h3 class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary">
                     Product
                   </h3>
                   <ul role="list" class="mt-6 space-y-4">
@@ -143,7 +140,7 @@ const Footer = () => {
               </div>
             </div>
             <div class="mt-10 xl:mt-0">
-              <h3 class="text-[30px] font-semibold leading-6 text-main dark:text-primary">
+              <h3 class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary">
                 Newsletter
               </h3>
               <ul role="list" class="mt-6 space-y-4">
@@ -157,24 +154,22 @@ const Footer = () => {
                 <label for="email-address" class="sr-only">
                   Email address
                 </label>
-                <div class="flex items-center border p-2 rounded-full bg-white">
+
+                <div class="relative">
+                  <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
                   <input
-                    type="email"
-                    name="email-address"
-                    id="email-address"
-                    autocomplete="email"
+                    type="search"
+                    id="search"
+                    class="block md:w-[400px] w-full p-4 ps-10 text-sm text-gray-900 border  rounded-full bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Email"
                     required
-                    class="w-full min-w-0 appearance-none  bg-white  px-3 py-1.5 text-base text-main placeholder:text-gray-500 sm:w-64 sm:text-sm sm:leading-6 xl:w-full"
-                    placeholder="Your email"
                   />
-                  <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                    <button
-                      type="submit"
-                      class="flex w-full items-center justify-center rounded-full bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                    >
-                      Subscribe
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    class="text-white absolute end-2.5 bottom-2.5 rounded-full bg-primary  focus:outline-nonefont-medium text-sm px-4 py-2 "
+                  >
+                    Subscribe
+                  </button>
                 </div>
               </form>
             </div>

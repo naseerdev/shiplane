@@ -4,19 +4,21 @@ import ShipmentTrack from "../components/ShipmentTrack/ShipmentTrack.astro";
 import SmartFeatures from "../components/SmartFeature/SmartFeatures.astro";
 import Analytics from "../components/Analytics/Analytics.astro";
 import Carrier from "../components/Carrier/Carrier.astro";
-import PricePlan from "../components/PricePlan/PricePlan";
+import PricePlan from "../components/PricePlan/PricePlan.astro";
 import FaqSection from "../components/FAQ/FaqSection";
-import GetStarted from "../components/GetStarted/GetStarted";
+import GetStarted from "../components/GetStarted/GetStarted.astro";
 import Hero from "../components/header/Hero.astro";
+import TrustUs from "../components/TrustUs/TrustUs.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <Hero />
+  <TrustUs/>
   <ShipmentTrack />
   <SmartFeatures />
   <Analytics />
   <Carrier />
   <FaqSection client:only="solid-js" />
-  <PricePlan client:only="solid-js" />
-  <GetStarted client:only="solid-js" />
+  <PricePlan />
+  <GetStarted />
 </Layout>
