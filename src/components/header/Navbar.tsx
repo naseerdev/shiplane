@@ -91,12 +91,11 @@ const Navbar: Component = () => {
                 >
                   Features
                 </a>
-                <button
-                  type="button"
-                  class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold shadow-sm hover:bg-indigo-500  hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                <a
+                  class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold shadow-sm hover:bg-indigo-500  hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex  justify-center"
                 >
                   Sign In
-                </button>
+                </a>
                 <button
                   type="button"
                   class={`relative items-center mt-5  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${isDarkMode() ? "bg-indigo-600" : 'bg-gray-200'}`}
@@ -143,7 +142,26 @@ const Navbar: Component = () => {
               >
                 Features
               </a>
-
+              <a
+                class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold shadow-sm hover:bg-indigo-500  hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex  justify-center mx-4 py-2"
+              >
+                Sign In
+              </a>
+              <div class="py-2 pl-3 pr-4">
+                <button
+                  type="button"
+                  class={`relative items-center  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2  border-1 border ${isDarkMode() ? "bg-indigo-600" : 'bg-gray-200'}`}
+                  role="switch"
+                  aria-checked="true"
+                  onClick={handleeChangeDarkMode}
+                >
+                  <span class="sr-only">Use setting</span>
+                  <span
+                    aria-hidden="true"
+                    class={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${isDarkMode() ? "translate-x-5" : 'translate-x-0'}`}
+                  ></span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
