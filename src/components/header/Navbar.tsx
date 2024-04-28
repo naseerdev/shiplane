@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onCleanup, onMount, Show, type Component } from "solid-js";
+import { createEffect, createSignal, onCleanup, onMount, type Component } from "solid-js";
 import { HamburgerMenu } from "../../lib/icons/hamburgerMenu";
 import { HamburgerClose } from "../../lib/icons/HamburgerClose";
 

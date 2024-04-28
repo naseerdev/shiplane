@@ -53,7 +53,7 @@ const PricePlan: Component = () => {
             role="list"
             class="mt-8 space-y-3 text-sm leading-6 sm:mt-10 border-t pt-5 text-gray-600"
           >
-            {free().map((item, index) => (
+            {free().map((item) => (
               <li class="flex gap-x-3 text-primary text-2xl">
                 <TickIcon />
                 {item}
@@ -95,7 +95,7 @@ const PricePlan: Component = () => {
             role="list"
             class="mt-8 space-y-3 text-sm leading-6 sm:mt-10 border-t pt-3 text-primary"
           >
-            {pro().map((item, index) => (
+            {pro().map((item) => (
               <li class="flex gap-x-3 text-main text-2xl">
                 <TickIcon />
                 {item}

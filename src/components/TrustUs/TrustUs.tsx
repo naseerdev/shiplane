@@ -1,6 +1,6 @@
 import { StarFill } from "../../lib/icons/StarFill";
 import { StarDisable } from "../../lib/icons/StarDisable";
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 import { DraftBit } from "../../lib/icons/DraftBit";
 import { Feedly } from "../../lib/icons/Feedly";
 import { Krisp } from "../../lib/icons/Krisp";
@@ -38,7 +38,7 @@ const TrustUs = () => {
     <div class="mt-24">
       <div class="flex items-center justify-center">
         <p class="mr-2 text-main dark:text-white">Trusted By 20,000 Clients</p>
-        {[...Array(4)].map((_, index) => (
+        {[...Array(4)].map((_) => (
           <StarFill />
         ))}
         <StarDisable />
