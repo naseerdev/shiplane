@@ -47,24 +47,27 @@ const avatarImages = [
         {
           avatarImages.map((avatar) => (
             <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
-              <Image  alt="icon" class="w-10 md:w-full" src={avatar} />
+              <Image
+                alt="icon"
+                class="w-10 md:w-full"
+                src={avatar}
+                loading="eager"
+              />
             </div>
           ))
         }
-       
       </div>
     </div>
   </marquee>
   <div class="mx-auto max-w-8xl px-6 block md:hidden">
-      <div class="flex-wrap flex items-center justify-center gap-6 mt-10">
-        {
-          avatarImages.map((avatar) => (
-            <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
-              <Image alt="icon" class="w-full sm:w-auto" src={avatar} />
-            </div>
-          ))
-        }
-       
-      </div>
+    <div class="flex-wrap flex items-center justify-center gap-6 mt-10">
+      {
+        avatarImages.map((avatar) => (
+          <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
+            <Image alt="icon" class="w-full sm:w-auto" src={avatar} />
+          </div>
+        ))
+      }
     </div>
+  </div>
 </div>
