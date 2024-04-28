@@ -22,7 +22,7 @@ const PricePlan: Component = () => {
   return (
     <div class="relative isolate bg-transparent px-6 py-16 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
-        <p class="text-5xl leading-[50px] text-center text-main font-extrabold dark:text-white">
+        <p class="text-3xl sm:text-5xl sm:leading-[50px] text-center text-main font-extrabold dark:text-white">
           Find your{" "}
           <span class="bg-[#FFF0D9] dark:bg-primary">Perfect Plan</span>
         </p>

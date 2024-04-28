@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import Global from "/src/assets/images/global.png";
+---
+
+<div class="flex flex-col justify-center items-center mt-24 mx-auto max-w-7xl">
+  <p
+    class="text-3xl sm:text-5xl sm:leading-[50px] text-center text-main font-extrabold dark:text-white"
+  >
+    Our <span class="bg-[#FFF0D9] dark:bg-primary"> 1000+ Supported</span>{" "}
+    Carriers
+  </p>
+  <div class="w-full">
+    <Image src={Global} width={1300} height={933} alt="" />
+  </div>
+</div>

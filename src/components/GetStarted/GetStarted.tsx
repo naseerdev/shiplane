@@ -7,7 +7,7 @@ const GetStarted = () => {
       <GetStartedBg />
       <GetStartedBgBottom />
       <div class="flex flex-col justify-center items-center gap-6">
-        <p class="text-5xl leading-[50px] text-center text-main font-extrabold dark:text-white">
+        <p class="text-3xl sm:text-5xl sm:leading-[50px] text-center text-main font-extrabold dark:text-white">
           <span class="bg-[#FFF0D9] dark:bg-main">Get Started </span>
           With Irsal
         </p>

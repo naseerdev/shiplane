@@ -1,11 +1,19 @@
-import { createEffect, createSignal, Show, type Component } from "solid-js";
+import { createEffect, createSignal, onCleanup, onMount, Show, type Component } from "solid-js";
+import { HamburgerMenu } from "../../lib/icons/hamburgerMenu";
+import { HamburgerClose } from "../../lib/icons/HamburgerClose";
 
 const Navbar: Component = () => {
   const [open, setOpen] = createSignal<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = createSignal<boolean>(false);
+  let containerRef: HTMLDivElement;
+
   createEffect(() => {
     const mode = localStorage.getItem("mode");
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
+      setIsDarkMode(true)
+    } else {
+      setIsDarkMode(false)
     }
   });
 
@@ -14,16 +22,28 @@ const Navbar: Component = () => {
     if (checkMode === "dark") {
       document.documentElement.classList.remove("dark");
       localStorage.removeItem("mode");
+      setIsDarkMode(false)
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("mode", "dark");
+      setIsDarkMode(true)
     }
   };
+
+  const handleClickOutside = (event: Event) => {
+    if (!containerRef.contains(event.target as Node)) {
+      if (open()) setOpen(false);
+    };
+  };
+
+  onMount(() => document.addEventListener('click', handleClickOutside));
+  onCleanup(() => document.removeEventListener('click', handleClickOutside));
+
   return (
     <div>
       <nav class="relative z-10 bg-transparent ">
-        <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-16 justify-between">
+        <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 pt-5">
+          <div class="flex h-16 justify-between" ref={containerRef!}>
             <div class="flex w-full justify-between">
               <div class="-ml-2 mr-2 flex items-center md:hidden">
                 <button
@@ -36,76 +56,50 @@ const Navbar: Component = () => {
                   <span class="absolute -inset-0.5"></span>
                   <span class="sr-only">Open main menu</span>
 
-                  <svg
-                    class="block h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                    />
-                  </svg>
+                  {!open() ? <HamburgerMenu /> :
 
-                  <svg
-                    class="hidden h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                    <HamburgerClose />}
                 </button>
               </div>
               <div class="flex flex-shrink-0 items-center">
-                <p class="text-[30px] font-bold text-main dark:text-primary">
+                <p class="text-[30px] font-bold text-white sm:text-primary dark:text-primary">
                   Irsal
                 </p>
               </div>
               <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-8">
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white font-gilroy-bold"
+                  class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white "
                 >
                   Home
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white hover:font-gilroy-bold hover:font-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-white  hover:font-bold"
                 >
                   About Us
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white hover:font-gilroy-bold hover:font-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-white  hover:font-bold"
                 >
                   Pricing
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white hover:font-gilroy-bold hover:font-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-white  hover:font-bold"
                 >
                   Features
                 </a>
                 <button
                   type="button"
-                  class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold text-indigo-600 shadow-sm hover:bg-indigo-500  hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold shadow-sm hover:bg-indigo-500  hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign In
                 </button>
                 <button
                   type="button"
-                  class="relative items-center mt-5 bg-gray-200 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+                  class={`relative items-center mt-5  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${isDarkMode() ? "bg-indigo-600" : 'bg-gray-200'}`}
                   role="switch"
                   aria-checked="true"
                   onClick={handleeChangeDarkMode}
@@ -113,16 +107,18 @@ const Navbar: Component = () => {
                   <span class="sr-only">Use setting</span>
                   <span
                     aria-hidden="true"
-                    class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                    class={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${isDarkMode() ? "translate-x-5" : 'translate-x-0'}`}
                   ></span>
                 </button>
+
               </div>
             </div>
           </div>
         </div>
-        <Show when={open()}>
-          <div class="md:hidden bg-indigo-600 ms-3 me-3" id="mobile-menu">
-            <div class="space-y-1 pb-3 pt-2">
+
+        <div class={`${open() ? `block` : `hidden`}`} >
+          <div class="md:hidden  absolute w-full px-4" id="mobile-menu">
+            <div class="space-y-1 pb-3 pt-2 bg-indigo-600">
               <a
                 href="#"
                 class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6"
@@ -131,25 +127,26 @@ const Navbar: Component = () => {
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] font-[500] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 About Us
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] font-[500] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Pricing
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] font-[500] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Features
               </a>
+
             </div>
           </div>
-        </Show>
+        </div>
       </nav>
     </div>
   );
