@@ -4,10 +4,10 @@ import getStarted from "../../assets/images/getStarted.png";
 ---
 
 <div
-  class="relative mt-24 flex justify-center items-center bg-[#F9F9F9] dark:bg-primary"
+  class="relative mt-24 flex justify-center items-center bg-[#F9F9F9] py-10 md:py-0 dark:bg-primary"
 >
   <Image alt="" class="hidden md:block w-[100%]" src={getStarted} />
-  <div class="md:absolute md:bottom-48">
+  <div class="md:absolute">
     <div class="flex flex-col justify-center items-center gap-6">
       <p
         class="text-3xl sm:text-5xl sm:leading-[50px] text-center text-main font-extrabold dark:text-white"
@@ -22,11 +22,12 @@ import getStarted from "../../assets/images/getStarted.png";
       <div class="relative">
         <div
           class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
-        ></div>
+        >
+        </div>
         <input
           type="search"
           id="search"
-          class="block md:w-[400px] w-full p-4 ps-10 text-sm text-gray-900 border rounded-full bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="block md:w-[400px] w-[300px] p-4 ps-10 text-sm text-gray-900 border rounded-full bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Email"
           required
         />

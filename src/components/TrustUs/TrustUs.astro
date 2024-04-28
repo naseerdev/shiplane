@@ -13,9 +13,6 @@ import MapBox from "/src/assets/images/mapbox.png";
 import MetaMask from "/src/assets/images/metamask.png";
 import People from "/src/assets/images/people.png";
 import Sketch from "/src/assets/images/sketch.png";
-// import Avatar1 from "/src/assets/images/avatar1.png";
-// import Avatar2 from "/src/assets/images/avatar2.png";
-// import Avatar3 from "/src/assets/images/avatar3.png";
 // Import additional images as needed
 const avatarImages = [
   DraftBit,
@@ -30,30 +27,9 @@ const avatarImages = [
   People,
   Sketch,
 ];
-
-//  const companyLogo1 = [
-//     { icon: <Feedly /> },
-//     { icon: <DraftBit /> },
-//     { icon: <Krisp /> },
-//     { icon: <Jitter /> },
-//     { icon: <MapBox /> },
-//     { icon: <Sketch /> },
-//     { icon: <Grammerly /> },
-//     { icon: <HelloSign /> },
-//   ];
-//   const companyLogo2 = [
-//     { icon: <HelloSign /> },
-//     { icon: <LiveChat /> },
-//     { icon: <MapBox /> },
-//     { icon: <People /> },
-//     { icon: <Krisp /> },
-//     { icon: <DraftBit /> },
-//     { icon: <MetaMask /> },
-//     { icon: <Sketch /> },
-//   ];
 ---
 
-<div class="mt-96">
+<div class="mt-24 md:mt-56">
   <div class="flex items-center justify-center mt-24">
     <p class="mr-2 text-main dark:text-white">Trusted By 20,000 Clients</p>
     {[...Array(4)].map((_) => <StarFill />)}
@@ -65,9 +41,22 @@ const avatarImages = [
     They <span class="bg-[#FFF0D9] dark:bg-primary"> Trust Us.</span>
   </p>
 
-  <marquee>
+  <marquee class="hidden md:block">
     <div class="mx-auto max-w-8xl px-6">
-      <div class="flex-wrap sm:flex items-center justify-center gap-6 mt-10">
+      <div class="flex-wrap flex items-center justify-center gap-6 mt-10">
+        {
+          avatarImages.map((avatar) => (
+            <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
+              <Image  alt="icon" class="w-10 md:w-full" src={avatar} />
+            </div>
+          ))
+        }
+       
+      </div>
+    </div>
+  </marquee>
+  <div class="mx-auto max-w-8xl px-6 block md:hidden">
+      <div class="flex-wrap flex items-center justify-center gap-6 mt-10">
         {
           avatarImages.map((avatar) => (
             <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
@@ -75,25 +64,7 @@ const avatarImages = [
             </div>
           ))
         }
-        <!-- {companyLogo2.map((item) => {
-              return (
-                <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
-                  {item.icon}
-                </div>
-              );
-            })} -->
+       
       </div>
     </div>
-  </marquee>
-  <div class="mx-auto max-w-8xl px-6">
-    <div class="flex-wrap sm:flex items-center justify-center gap-6 mt-10">
-      <!-- {companyLogo1.map((item) => {
-            return (
-              <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
-                {item.icon}
-              </div>
-            );
-          })} -->
-    </div>
-  </div>
 </div>

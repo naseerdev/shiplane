@@ -43,7 +43,7 @@ const FaqSection: Component = () => {
 
   return (
     <div>
-      <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+      <div class="mx-auto max-w-7xl px-6 pt-20 md:pt-24">
         <div class="mx-auto max-w-4xl divide-y divide-white/10">
           <p class="text-3xl md:text-5xl leading-[50px] text-center text-main font-extrabold dark:text-white">
             All your questions and{" "}
@@ -52,8 +52,9 @@ const FaqSection: Component = () => {
           {faqs.map((faq, index) => (
             <dl class="mt-10 space-y-6 divide-y divide-white/10">
               <div
-                class={`p-6 shadow-md bg-white rounded-xl  ${openIndexes().includes(index) ? "border border-primary" : ""
-                  }`}
+                class={`p-6 shadow-md bg-white rounded-xl  ${
+                  openIndexes().includes(index) ? "border border-primary" : ""
+                }`}
               >
                 <dt>
                   <button
@@ -67,16 +68,18 @@ const FaqSection: Component = () => {
                       {faq.question}
                     </span>
                     <span
-                      class={`${openIndexes().includes(index) ? "mr-3" : "ml-6"
-                        } flex h-7  items-center`}
+                      class={`${
+                        openIndexes().includes(index) ? "mr-3" : "ml-6"
+                      } flex h-7  items-center`}
                     >
                       {openIndexes().includes(index) ? <OpenIcon /> : <Close />}
                     </span>
                   </button>
                 </dt>
                 <dd
-                  class={`mt-5 pr-12 ${openIndexes().includes(index) ? "" : "hidden"
-                    }`}
+                  class={`mt-5 pr-12 ${
+                    openIndexes().includes(index) ? "" : "hidden"
+                  }`}
                   id={`faq-${index}`}
                 >
                   <p class="text-xl leading-7 text-main ">{faq.answer}</p>

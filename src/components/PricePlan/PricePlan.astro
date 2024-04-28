@@ -20,7 +20,7 @@ const [pro] = createSignal([
 ]);
 ---
 
-<div class="relative isolate bg-transparent px-6 py-16 sm:py-32 lg:px-8">
+<div class="relative isolate bg-transparent px-6 pt-12 md:pt-28">
   <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
     <p
       class="text-3xl sm:text-5xl sm:leading-[50px] text-center text-main font-extrabold dark:text-white"
@@ -44,20 +44,22 @@ const [pro] = createSignal([
       <PriceIconOne />
       <h1
         id="tier-hobby"
-        class="text-[44px] mt-6 font-semibold leading-7 text-primary font-gilroy-bold"
+        class="text-3xl md:text-[44px] mt-6 font-semibold leading-7 text-primary font-gilroy-bold"
       >
         Free
       </h1>
-      <p class="text-[24px] mt-6 font-semibold leading-8 text-[#1B2149]">
+      <p
+        class="text-xl md:text-[24px] mt-6 font-semibold leading-8 text-[#1B2149]"
+      >
         Unleash the Power of Your Business with Free Plan
       </p>
       <p class="mt-4 flex items-baseline gap-x-2">
         <span
-          class="text-6xl font-bold tracking-tight text-primary font-gilroy-bold"
+          class="text-4xl md:text-6xl font-bold tracking-tight text-primary font-gilroy-bold"
         >
           $34
         </span>
-        <span class="text-2xl text-gray-500">per month</span>
+        <span class="text-xl md:text-2xl text-gray-500">per month</span>
       </p>
       <ul
         role="list"
@@ -65,7 +67,7 @@ const [pro] = createSignal([
       >
         {
           free().map((item) => (
-            <li class="flex gap-x-3 text-primary text-2xl">
+            <li class="flex gap-x-3 text-primary text-xl md:text-2xl">
               <TickIcon />
               {item}
             </li>
@@ -88,25 +90,29 @@ const [pro] = createSignal([
       <div class="flex items-baseline gap-2">
         <h1
           id="tier-hobby"
-          class="text-[44px] mt-6 font-semibold leading-7 text-main font-gilroy-bold"
+          class="text-3xl md:text-[44px] mt-6 font-semibold leading-7 text-main font-gilroy-bold"
         >
           Pro
         </h1>
-        <p class="text-lg px-1 text-main border boder-main rounded-xl">
+        <p
+          class="text-md md:text-lg px-1 text-main border boder-main rounded-xl"
+        >
           Best Offer
         </p>
       </div>
 
-      <p class="text-[24px] mt-6 font-semibold leading-8 text-[#1B2149]">
+      <p
+        class="text-xl md:text-[24px] mt-6 font-semibold leading-8 text-[#1B2149]"
+      >
         Take Your Business to the Next Level with Pro Plan.
       </p>
       <p class="mt-4 flex items-baseline gap-x-2">
         <span
-          class="text-6xl font-bold tracking-tight text-main font-gilroy-bold"
+          class="text-4xl md:text-6xl font-bold tracking-tight text-main font-gilroy-bold"
         >
           $56
         </span>
-        <span class="text-2xl text-gray-500">per month</span>
+        <span class="text-xl md:text-2xl text-gray-500">per month</span>
       </p>
       <ul
         role="list"
@@ -114,7 +120,7 @@ const [pro] = createSignal([
       >
         {
           pro().map((item) => (
-            <li class="flex gap-x-3 text-main text-2xl">
+            <li class="flex gap-x-3 text-main text-xl md:text-2xl">
               <TickIcon />
               {item}
             </li>
@@ -124,7 +130,7 @@ const [pro] = createSignal([
       <a
         href="#"
         aria-describedby="tier-hobby"
-        class="mt-8 block rounded-md bg-primary dark:bg-white dark:text-main text-white py-2.5 px-3.5 text-center text-2xl font-gilroy-bold font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10 text-main ring-1 ring-inset ring-gray-600 hover:ring-gray-600 focus-visible:outline-gray-900"
+        class="mt-8 block rounded-md bg-primary dark:bg-white dark:text-main py-2.5 px-3.5 text-center text-2xl font-gilroy-bold font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10 text-main ring-1 ring-inset ring-gray-600 hover:ring-gray-600 focus-visible:outline-gray-900"
       >
         Get Started
       </a>
