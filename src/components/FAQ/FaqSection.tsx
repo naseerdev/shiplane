@@ -27,7 +27,7 @@ const FaqSection: Component = () => {
   ];
 
   // Define state for tracking open/closed state of each question
-  const [openIndexes, setOpenIndexes] = createSignal<number[]>([]);
+  const [openIndexes, setOpenIndexes] = createSignal<number[]>([0]);
 
   // Function to toggle the open/close state of a question
   const toggleQuestion = (index: number) => {
@@ -43,7 +43,7 @@ const FaqSection: Component = () => {
 
   return (
     <div>
-      <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+      <div class="mx-auto max-w-7xl px-6 pt-20 md:pt-24">
         <div class="mx-auto max-w-4xl divide-y divide-white/10">
           <p class="text-3xl md:text-5xl leading-[50px] text-center text-main font-extrabold dark:text-white">
             All your questions and{" "}
@@ -75,7 +75,7 @@ const FaqSection: Component = () => {
                   </button>
                 </dt>
                 <dd
-                  class={`mt-5 pr-12 ${openIndexes().includes(index) ? "" : "hidden"
+                  class={`mt-5 sm:pr-12 ${openIndexes().includes(index) ? "" : "hidden"
                     }`}
                   id={`faq-${index}`}
                 >
