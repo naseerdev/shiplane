@@ -27,7 +27,7 @@ const FaqSection: Component = () => {
   ];
 
   // Define state for tracking open/closed state of each question
-  const [openIndexes, setOpenIndexes] = createSignal<number[]>([]);
+  const [openIndexes, setOpenIndexes] = createSignal<number[]>([0]);
 
   // Function to toggle the open/close state of a question
   const toggleQuestion = (index: number) => {
@@ -52,9 +52,8 @@ const FaqSection: Component = () => {
           {faqs.map((faq, index) => (
             <dl class="mt-10 space-y-6 divide-y divide-white/10">
               <div
-                class={`p-6 shadow-md bg-white rounded-xl  ${
-                  openIndexes().includes(index) ? "border border-primary" : ""
-                }`}
+                class={`p-6 shadow-md bg-white rounded-xl  ${openIndexes().includes(index) ? "border border-primary" : ""
+                  }`}
               >
                 <dt>
                   <button
@@ -68,18 +67,16 @@ const FaqSection: Component = () => {
                       {faq.question}
                     </span>
                     <span
-                      class={`${
-                        openIndexes().includes(index) ? "mr-3" : "ml-6"
-                      } flex h-7  items-center`}
+                      class={`${openIndexes().includes(index) ? "mr-3" : "ml-6"
+                        } flex h-7  items-center`}
                     >
                       {openIndexes().includes(index) ? <OpenIcon /> : <Close />}
                     </span>
                   </button>
                 </dt>
                 <dd
-                  class={`mt-5 pr-12 ${
-                    openIndexes().includes(index) ? "" : "hidden"
-                  }`}
+                  class={`mt-5 sm:pr-12 ${openIndexes().includes(index) ? "" : "hidden"
+                    }`}
                   id={`faq-${index}`}
                 >
                   <p class="text-xl leading-7 text-main ">{faq.answer}</p>

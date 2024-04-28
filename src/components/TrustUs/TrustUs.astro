@@ -13,19 +13,19 @@ import MapBox from "/src/assets/images/mapbox.png";
 import MetaMask from "/src/assets/images/metamask.png";
 import People from "/src/assets/images/people.png";
 import Sketch from "/src/assets/images/sketch.png";
-// Import additional images as needed
+
 const avatarImages = [
-  DraftBit,
-  Feedly,
-  Krisp,
   Jitter,
-  Grammerly,
+  Krisp,
+  Feedly,
+  DraftBit,
   HelloSign,
+  Grammerly,
+  People,
   LiveChat,
+  Sketch,
   MapBox,
   MetaMask,
-  People,
-  Sketch,
 ];
 ---
 
@@ -36,17 +36,17 @@ const avatarImages = [
     <StarDisable />
   </div>
   <p
-    class="text-5xl mt-2 leading-[50px] text-center text-main font-extrabold dark:text-white"
+    class="text-3xl md:text-5xl mt-2 leading-[50px] text-center text-main font-extrabold dark:text-white"
   >
     They <span class="bg-[#FFF0D9] dark:bg-primary"> Trust Us.</span>
   </p>
 
   <marquee class="hidden md:block">
-    <div class="mx-auto max-w-8xl px-6">
+    <div class="mx-auto max-w-7xl px-6">
       <div class="flex-wrap flex items-center justify-center gap-6 mt-10">
         {
           avatarImages.map((avatar) => (
-            <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
+            <div class="rounded-full mb-3 py-4 px-6 h-[70px] shadow-xl bg-white dark:shadow-[gray]">
               <Image
                 alt="icon"
                 class="w-10 md:w-full"
@@ -63,8 +63,12 @@ const avatarImages = [
     <div class="flex-wrap flex items-center justify-center gap-6 mt-10">
       {
         avatarImages.map((avatar) => (
-          <div class="rounded-full mb-3 py-4 px-6 shadow-xl bg-white dark:shadow-[gray]">
-            <Image alt="icon" class="w-full sm:w-auto" src={avatar} />
+          <div class="rounded-full mb-3 py-4 flex px-6 shadow-xl bg-white dark:shadow-[gray]">
+            <Image
+              alt="icon"
+              class="w-16 md:w-full object-contain"
+              src={avatar}
+            />
           </div>
         ))
       }

@@ -3,7 +3,7 @@ import { Phone } from "../../lib/icons/Phone";
 
 const Footer = () => {
   return (
-    <div class="relative mx-auto px-10 md:max-w-7xl">
+    <div class="relative mx-auto px-4 md:px-10 md:max-w-7xl">
       <footer class="" aria-labelledby="footer-heading">
         <div class=" pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -18,7 +18,7 @@ const Footer = () => {
                       <Mail />
                       <a
                         href="#"
-                        class="text-base leading-6 hover:text-main dark:text-white"
+                        class="text-base leading-6 text-main dark:text-white"
                       >
                         Help@Frybix.Com
                       </a>
@@ -174,7 +174,7 @@ const Footer = () => {
               </form>
             </div>
           </div>
-          <div class="mt-16 mx-10 border-t border-main dark:border-white pt-8 sm:mt-20 lg:mt-24">
+          <div class="mt-16 mx-4 md:mx-10 border-t border-main dark:border-white pt-8 sm:mt-20 lg:mt-24">
             <p class="mt-8 text-base text-center leading-5 text-main dark:text-white md:order-1 md:mt-0">
               Copyright 2022 Frybix inc. all rights reserved
             </p>
