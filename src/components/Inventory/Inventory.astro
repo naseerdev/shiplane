@@ -1,7 +1,5 @@
 ---
-import InputField from "../InputField/InputField.astro";
-import Button from "../Common/Button/Button.astro";
-import ProgressBar from "../Common/ProgressBar/ProgressBar.astro";
+import RegistrationStepper from "../Registration";
 ---
 
 <div
@@ -14,18 +12,6 @@ import ProgressBar from "../Common/ProgressBar/ProgressBar.astro";
       <span class="bg-[#FFF0D9] dark:bg-primary">All-in-one inventory, </span> fulfillment
       and accounting software.
     </p>
-    <div class="mb-10">
-      <ProgressBar />
-    </div>
   </div>
-
-  <div class="p-[24px] border-[#E7EBFF] rounded-[15px] border-solid shadow">
-    <div class="mb-6">
-      <InputField label="Email" placeholder="Enter your email addres" />
-      <button
-        class="relative items-center tracking-wide rounded-[11px] px-10 py-[18px] my-3 w-full text-white bg-primary font-semibold shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >Next</button
-      >
-    </div>
-  </div>
+  <RegistrationStepper client:only="solid-js" />
 </div>
