@@ -5,5 +5,11 @@ import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), solidJs()]
+  compressHTML: true,
+  integrations: [tailwind(), solidJs()],
+  trailingSlash: "ignore",
+  build: {
+    assets: "_assets",
+    inlineStylesheets: `always`,
+  },
 });
