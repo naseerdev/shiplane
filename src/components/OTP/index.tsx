@@ -1,9 +1,40 @@
-import type { Component } from "solid-js";
+import { createSignal, type Component } from "solid-js";
+
 interface Props {
   otpVerified: () => void;
+  closeModal: () => void;
 }
 
-const OtpModal: Component<Props> = ({ otpVerified }) => {
+const OtpModal: Component<Props> = ({ otpVerified, closeModal }) => {
+  const [otp, setOtp] = createSignal(["", "", "", ""]);
+  const [error, setError] = createSignal("");
+
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+    if (otp().some((value) => value === "")) {
+      setError("Please enter the OTP");
+    } else {
+      setError("");
+      otpVerified();
+    }
+  };
+
+  const handleInput = (e: Event, index: number) => {
+    const newValue = (e.target as HTMLInputElement).value.replace(/\D/, "");
+    setOtp((prev) => {
+      const newOtp = prev.slice();
+      newOtp[index] = newValue;
+      return newOtp;
+    });
+    if (newValue !== "" && index < 3) {
+      const nextIndex = index + 1;
+      const nextInput = document.getElementById(`otp-${nextIndex}`);
+      if (nextInput) {
+        nextInput.focus();
+      }
+    }
+  };
+
   return (
     <div
       class="relative z-10"
@@ -37,44 +68,31 @@ const OtpModal: Component<Props> = ({ otpVerified }) => {
             </div>
             <form id="otp-form" class="mt-6">
               <div class="flex items-center justify-center gap-3">
-                <input
-                  type="text"
-                  class="w-14 h-14 text-center border-solid border-primary text-2xl font-extrabold text-slate-900 bg-transparent border hover:border-primary appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                  pattern="\d*"
-                  placeholder="0"
-                  maxlength="1"
-                />
-                <input
-                  type="text"
-                  class="w-14 h-14 text-center border-solid border-primary text-2xl font-extrabold text-slate-900 bg-transparent border hover:border-primary appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                  pattern="\d*"
-                  placeholder="0"
-                  maxlength="1"
-                />
-                <input
-                  type="text"
-                  class="w-14 h-14 text-center border-solid border-primary text-2xl font-extrabold text-slate-900 bg-transparent border hover:border-primary appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                  pattern="\d*"
-                  placeholder="0"
-                  maxlength="1"
-                />
-                <input
-                  type="text"
-                  class="w-14 h-14 text-center border-solid border-primary text-2xl font-extrabold text-slate-900 bg-transparent border hover:border-primary appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                  pattern="\d*"
-                  placeholder="0"
-                  maxlength="1"
-                />
+                {[...Array(4)].map((_, index) => (
+                  <input
+                    type="text"
+                    class="w-14 h-14 text-center border-solid border-primary text-2xl font-extrabold text-slate-900 bg-transparent border hover:border-primary appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    value={otp()[index] || ""}
+                    onInput={(e) => handleInput(e, index)}
+                    placeholder="0"
+                    maxlength="1"
+                    pattern="\d*"
+                    id={`otp-${index}`}
+                  />
+                ))}
               </div>
+              {error() && (
+                <p class="text-red-500 text-sm mt-2 text-center">{error()}</p>
+              )}
               <div class="mt-5 sm:mt-6">
                 <button
-                  onClick={() => otpVerified()}
+                  onClick={handleSubmit}
                   class="relative items-center tracking-wide text-[16px] rounded-[11px] px-10 py-[9px] my-1 w-full text-white bg-primary font-normal shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   Verify OTP
                 </button>
                 <button
-                  // onClick={''}
+                  onClick={() => closeModal()}
                   class="relative items-center text-[16px]  border-solid border-[1px] rounded-[11px] px-10 py-[9px] mt-2 w-full text-primary bg-white font-normal shadow-sm hover:bg-primary-500 border-primary"
                 >
                   {" "}
