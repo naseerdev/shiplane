@@ -40,7 +40,7 @@ const SelectMenu: Component<Props> = ({ label }) => {
       <div class="relative mt-2">
         <button
           type="button"
-          class="relative w-full cursor-default md:text-[16px] text-[#ccc] border-primary rounded-md border-[1.7px] px-[10px] py-[1rem] bg-white text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-1 sm:text-sm sm:leading-6"
+          class="relative w-full cursor-default md:text-[16px]  border-primary rounded-md border-[1.7px] px-[10px] py-[1rem] bg-white text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-1 sm:text-sm sm:leading-6"
           aria-haspopup="listbox"
           aria-expanded={isListOpen()}
           aria-labelledby="listbox-label"

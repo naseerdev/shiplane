@@ -62,9 +62,9 @@ const Navbar: Component = () => {
                 </button>
               </div>
               <div class="flex flex-shrink-0 items-center">
-                <p class="text-[30px] font-bold text-white sm:text-primary dark:text-primary">
+                <a href='/' class="text-[30px] font-bold text-white sm:text-primary dark:text-primary">
                   Irsal
-                </p>
+                </a>
               </div>
               <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-8">
                 <a
