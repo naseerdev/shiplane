@@ -1,6 +1,10 @@
 import { createSignal, type Component } from "solid-js";
 
-const SelectMenu: Component = () => {
+
+interface Props {
+  label: string;
+}
+const SelectMenu: Component<Props> = ({ label }) => {
   // Define options array
   const options = [
     "Tom Cook",
@@ -26,30 +30,39 @@ const SelectMenu: Component = () => {
   };
 
   return (
-    <div>
+    <div class="relative">
+      <label
+        for="select-menu"
+        class="absolute z-[1] font-semibold top-[-13px] left-2 inline-block bg-white px-1 text-[14px] sm:text-[16px] text-[#6940DA]"
+      >
+        {label}
+      </label>
       <div class="relative mt-2">
         <button
           type="button"
-          class="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          class="relative w-full cursor-default md:text-[16px] text-[#ccc] border-primary rounded-md border-[1.7px] px-[10px] py-[1rem] bg-white text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-1 sm:text-sm sm:leading-6"
           aria-haspopup="listbox"
           aria-expanded={isListOpen()}
           aria-labelledby="listbox-label"
           onClick={toggleList}
         >
           <span class="block truncate">
-            {selectedOption() ? selectedOption() : "Nothing Selection"}
+            {selectedOption() ? selectedOption() : "Nothing Selected"}
           </span>
           <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <svg
-              class="h-5 w-5 text-gray-400"
+              class={`h-5 w-5 text-gray-400 ${isListOpen() ? "transform rotate-180" : ""
+                }`}
               viewBox="0 0 20 20"
-              fill="currentColor"
+              fill="none"
+              stroke="#6940DA"
               aria-hidden="true"
             >
               <path
-                fill-rule="evenodd"
-                d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                clip-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 15l6-6 6 6"
               />
             </svg>
           </span>
@@ -57,7 +70,7 @@ const SelectMenu: Component = () => {
 
         {isListOpen() && (
           <ul
-            class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            class="absolute z-10 mt-2 max-h-60 w-full overflow-auto rounded-md border border-primary bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
             tabindex="-1"
             role="listbox"
             aria-labelledby="listbox-label"
@@ -65,7 +78,7 @@ const SelectMenu: Component = () => {
           >
             {options.map((option, index) => (
               <li
-                class="text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9"
+                class="text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9 ho hover:bg-primary hover:text-white"
                 id={`listbox-option-${index}`}
                 role="option"
                 onClick={() => selectOption(option)}

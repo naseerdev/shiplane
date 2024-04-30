@@ -35,7 +35,7 @@ const ProgressBar: Component<ProgressBarProps> = ({ currentStep }) => {
     <nav aria-label="Progress">
       <ol role="list" class="flex items-center justify-center">
         {steps.map((step, index) => (
-          <li class={`relative  ${index < 2 ? "pr-20 sm:pr-[8rem]" : ""}`}>
+          <li class={`relative  ${index < 2 ? "pr-[4rem] sm:pr-20 sm:pr-[8rem]" : ""}`}>
             {/* <!-- Completed Step --> */}
             <div
               class="absolute inset-0 flex items-center left-12"
@@ -43,19 +43,19 @@ const ProgressBar: Component<ProgressBarProps> = ({ currentStep }) => {
             >
               <div
                 class={`h-0.5 w-full ${index < 2
-                    ? index + 1 >= currentStep()
-                      ? "bg-[#b4a6dc54]"
-                      : "bg-primary"
-                    : ""
+                  ? index + 1 >= currentStep()
+                    ? "bg-[#b4a6dc54]"
+                    : "bg-primary"
+                  : ""
                   } `}
               ></div>
             </div>
             <div
-              class={`relative flex h-[50px] w-[50px] items-center justify-center rounded-full ${index + 1 <= currentStep()
-                  ? index + 1 === currentStep()
-                    ? "border-primary"
-                    : "bg-primary dark:bg-white border-[#b4a6dc54]"
-                  : "bg-white dark:bg-transparent border-[#b4a6dc54] "
+              class={`relative flex h-[43px] w-[43px] sm:h-[50px] sm:w-[50px] items-center justify-center rounded-full ${index + 1 <= currentStep()
+                ? index + 1 === currentStep()
+                  ? "border-primary"
+                  : "bg-primary dark:bg-white border-[#b4a6dc54]"
+                : "bg-white dark:bg-transparent border-[#b4a6dc54] "
                 } border-2 `}
             >
               {index + 1 < currentStep() && index + 1 !== currentStep() ? (
@@ -64,6 +64,7 @@ const ProgressBar: Component<ProgressBarProps> = ({ currentStep }) => {
                   viewBox="0 0 20 20"
                   fill="bg-white dark:bg-primary"
                   aria-hidden="true"
+                  stroke="#fff"
                 >
                   <path
                     fill-rule="evenodd"
@@ -80,7 +81,7 @@ const ProgressBar: Component<ProgressBarProps> = ({ currentStep }) => {
                 </span>
               )}
 
-              <span class="absolute bottom-[-30px] text-[17px] font-bold text-[#6940DA]">
+              <span class="absolute bottom-[-30px] text-[15px] sm:text-[17px] font-bold text-[#6940DA] dark:text-white">
                 {step.label}
               </span>
             </div>
