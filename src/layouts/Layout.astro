@@ -1,9 +1,10 @@
 ---
-import "../styles/main.css";
 import Header from "../components/header/Header.tsx";
-import Footer from "../components/Footer/Footer.tsx";
+import { Mail } from "../lib/icons/Mail";
+import { Phone } from "../lib/icons/Phone";
+import "../styles/main.css";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,17 +12,214 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Optimize your shipment journey and transform data into useful business insights to reduce costs and achieve goals smartly." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="dark:bg-main">
-		<Header client:only="solid-js"/>
-		<slot/>
-	 <Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Optimize your shipment journey and transform data into useful business insights to reduce costs and achieve goals smartly."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="dark:bg-main">
+    <Header client:only="solid-js" />
+    <slot />
+    <div class="relative mx-auto px-4 md:px-10 md:max-w-7xl">
+      <footer class="" aria-labelledby="footer-heading">
+        <div class="pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
+          <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+              <div class="md:grid md:grid-cols-2 md:gap-8">
+                <div>
+                  <h3
+                    class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary"
+                  >
+                    Irsal
+                  </h3>
+                  <ul role="list" class="mt-6 space-y-4">
+                    <li class="flex gap-2 items-center">
+                      <Mail />
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Help@Frybix.Com
+                      </a>
+                    </li>
+                    <li class="flex gap-2 items-center">
+                      <Phone />
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        +1234 456 67889
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-10 md:mt-0">
+                  <h3
+                    class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary"
+                  >
+                    Links
+                  </h3>
+                  <ul role="list" class="mt-6 space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        About Us
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Bookings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Blog
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-2 md:gap-8">
+                <div>
+                  <h3
+                    class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary"
+                  >
+                    Legal
+                  </h3>
+                  <ul role="list" class="mt-6 space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Terms Of Use
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Privacy Policy
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Cookie Policy
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-10 md:mt-0">
+                  <h3
+                    class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary"
+                  >
+                    Product
+                  </h3>
+                  <ul role="list" class="mt-6 space-y-4">
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Take Tour
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Live Chat
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="text-base leading-6 text-main dark:text-white"
+                      >
+                        Reviews
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="mt-10 xl:mt-0">
+              <h3
+                class="text-2xl md:text-[30px] font-semibold leading-6 text-main dark:text-primary"
+              >
+                Newsletter
+              </h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li>
+                  <p class="text-base leading-6 text-main dark:text-white">
+                    Stay Up to date
+                  </p>
+                </li>
+              </ul>
+              <form class="mt-6 sm:flex sm:max-w-md">
+                <label for="email-address" class="sr-only">
+                  Email address
+                </label>
+
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+                  ></div>
+                  <input
+                    type="search"
+                    id="search"
+                    class="block md:w-[400px] w-full p-4 ps-10 text-sm text-gray-900 border rounded-full bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Email"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="text-white absolute end-2.5 bottom-2.5 rounded-full bg-primary focus:outline-nonefont-medium text-sm px-4 py-2"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div
+            class="mt-16 mx-4 md:mx-10 border-t border-main dark:border-white pt-8 sm:mt-20 lg:mt-24"
+          >
+            <p
+              class="mt-8 text-base text-center leading-5 text-main dark:text-white md:order-1 md:mt-0"
+            >
+              Copyright 2022 Frybix inc. all rights reserved
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

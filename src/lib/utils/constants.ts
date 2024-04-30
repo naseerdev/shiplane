@@ -1,4 +1,3 @@
-export const REGISTER_ROUTE = "/start-free-trial";
 export const FUNCTION = "function";
 
 export const SALE_CHANNEL_OPTIONS = [

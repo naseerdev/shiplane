@@ -1,7 +1,5 @@
-import { REGISTER_ROUTE } from "./constants";
-
 export const SITE_DOMAIN = 'https://irsal.pk'
-export const checkStartTrialLocation = () => window.location.pathname === REGISTER_ROUTE
+export const checkStartTrialLocation = () => window.location.pathname === '/start-free-trial' || window.location.pathname === '/start-free-trial/'
 export const validateEmail = (email: string): boolean => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
