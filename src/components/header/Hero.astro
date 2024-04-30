@@ -7,72 +7,84 @@ import avatartOne from "/src/assets/images/avatar1.png";
 import avatartTwo from "/src/assets/images/avatar2.png";
 import avatartThree from "/src/assets/images/avatar3.png";
 import heroImage from "/src/assets/images/heroImage.png";
+
+interface Props {
+  title: string;
+  showInfo?: boolean;
+  subTitle?: string;
+}
+
+const { showInfo, title, subTitle } = Astro.props;
 ---
 
 <div
   class="flex justify-between mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-20"
 >
   <div class="flex flex-col gap-6">
-    <p
-      class="text-5xl sm:text-[68px] sm:leading-[75px] text-main w-20 font-extrabold dark:text-white"
-    >
-      Optimized{" "}
-      <span class="bg-[#FFF0D9] dark:bg-primary">Deliveries,</span> Maximum{" "}
-      <span class="bg-[#FFF0D9] dark:bg-primary">Revenue!</span>
-    </p>
-    <p class="text-lg leading-[27px] sm:w-[50%] text-main dark:text-white">
-      Optimize your shipment journey and transform data into useful business
-      insights to reduce costs and achieve goals smartly.
-    </p>
-    <div class="flex gap-5">
-      <input
-        type="email"
-        placeholder="xyz.com"
-        class="rounded-full border p-4 sm:w-[35%] w-full"
-      />
-      <button class="rounded-full bg-primary p-4">
-        <Arrow />
-      </button>
-    </div>
-    <div
-      class="flex items-center gap-5 flex-wrap justify-center sm:justify-start"
-    >
-      <div class="isolate flex -space-x-2 overflow-hidden">
-        <Image
-          class="relative z-30 inline-block h-12 w-12 rounded-full ring-white"
-          src={avatartOne}
-          alt=""
-        />
-        <Image
-          class="relative z-20 inline-block h-12 w-12 rounded-full ring-white"
-          src={avatartTwo}
-          alt=""
-        />
-        <Image
-          class="relative z-10 inline-block h-12 w-12 rounded-full ring-white"
-          src={avatartThree}
-          alt=""
-        />
-      </div>
-      <div class="flex flex-col">
-        <p class="text-3xl text-main font-bold dark:text-white">2,291</p>
-        <p class="text-xs sm:text-base text-main dark:text-white"
-          >Happy Customers</p
-        >
-      </div>
-      <div class="border h-8 hidden sm:block"></div>
-      <div class="flex flex-col">
-        <p
-          class="text-3xl text-main font-bold dark:text-white text-center sm:text-left"
-          >4.8/5</p
-        >
-        <div class="flex items-center">
-          {[...Array(4)].map((_) => <StarFill />)}
-          <StarDisable />
-          <p class="ml-3 text-main dark:text-white">Rating</p>
-        </div>
-      </div>
-    </div>
+    <div set:html={title} />
+
+    {
+      subTitle && (
+        <p class="text-lg leading-[27px] sm:w-[50%] text-main dark:text-white">
+          {subTitle}
+        </p>
+      )
+    }
+
+    {
+      showInfo && (
+        <>
+          <div class="flex gap-5">
+            <input
+              type="email"
+              placeholder="xyz.com"
+              class="rounded-full border p-4 sm:w-[35%] w-full"
+            />
+            <button class="rounded-full bg-primary p-4">
+              <Arrow />
+            </button>
+          </div>
+          <div class="flex items-center gap-5 flex-wrap justify-center sm:justify-start">
+            <div class="isolate flex -space-x-2 overflow-hidden">
+              <Image
+                class="relative z-30 inline-block h-12 w-12 rounded-full ring-white"
+                src={avatartOne}
+                alt=""
+              />
+              <Image
+                class="relative z-20 inline-block h-12 w-12 rounded-full ring-white"
+                src={avatartTwo}
+                alt=""
+              />
+              <Image
+                class="relative z-10 inline-block h-12 w-12 rounded-full ring-white"
+                src={avatartThree}
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col">
+              <p class="text-3xl text-main font-bold dark:text-white">2,291</p>
+              <p class="text-xs sm:text-base text-main dark:text-white">
+                Happy Customers
+              </p>
+            </div>
+            <div class="border h-8 hidden sm:block" />
+            <div class="flex flex-col">
+              <p class="text-3xl text-main font-bold dark:text-white text-center sm:text-left">
+                4.8/5
+              </p>
+              <div class="flex items-center">
+                {[...Array(4)].map((_) => (
+                  <StarFill />
+                ))}
+                <StarDisable />
+                <p class="ml-3 text-main dark:text-white">Rating</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    }
   </div>
   <div class="hidden md:block">
     <div
