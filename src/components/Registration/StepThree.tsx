@@ -1,9 +1,8 @@
-import { createSignal, Show, type Component } from "solid-js";
-import InputField from "../InputField/InputField";
-import OtpModal from "../OTP";
-import SelectMenu from "../Common/SelectMenu";
-import { CheckLite } from "../../lib/icons/CheckLite";
+import { createSignal, type Component } from "solid-js";
 import { CheckFill } from "../../lib/icons/CheckFill";
+import { CheckLite } from "../../lib/icons/CheckLite";
+import SelectMenu from "../Common/SelectMenu";
+import InputField from "../InputField/InputField";
 
 
 interface Props {
@@ -51,7 +50,7 @@ const StepThree: Component<Props> = ({ nextStep, backStep }) => {
               <div class="h-[14px] w-[14px] me-2">
                 {isChecked1() ? <CheckFill /> : <CheckLite />}
               </div>
-              <p class="text-[14px] text-[#1B2149] dark:text-primary font-normal dark:text-[#000]">
+              <p class="text-[14px] text-[#1B2149]  font-normal dark:text-[#000]">
                 Sign up to our marketing list for helpful ecommerce content,
                 product updates and help form our sales teams.
               </p>
@@ -60,7 +59,7 @@ const StepThree: Component<Props> = ({ nextStep, backStep }) => {
               <div class="h-[14px] w-[14px] me-2">
                 {isChecked2() ? <CheckFill /> : <CheckLite />}
               </div>
-              <p class="text-[14px] text-[#1B2149] dark:text-primary font-normal dark:text-[#000]">
+              <p class="text-[14px] text-[#1B2149]  font-normal dark:text-[#000]">
                 I agree to Irsal <a href="" class="text-[#6940DA] font-semibold">Terms and Service</a> and <a href="" class="text-[#6940DA] font-semibold">Privacy Policy</a>.
               </p>
             </div>

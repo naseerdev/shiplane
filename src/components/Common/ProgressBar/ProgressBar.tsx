@@ -35,7 +35,7 @@ const ProgressBar: Component<ProgressBarProps> = ({ currentStep }) => {
     <nav aria-label="Progress">
       <ol role="list" class="flex items-center justify-center">
         {steps.map((step, index) => (
-          <li class={`relative  ${index < 2 ? "pr-[4rem] sm:pr-20 sm:pr-[8rem]" : ""}`}>
+          <li class={`relative  ${index < 2 ? "pr-[4rem]  sm:pr-[8rem]" : ""}`}>
             {/* <!-- Completed Step --> */}
             <div
               class="absolute inset-0 flex items-center left-12"
