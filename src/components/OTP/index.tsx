@@ -50,10 +50,10 @@ const OtpModal: Component<Props> = ({ otpVerified, closeModal }) => {
             <div>
               <div class="mt-3 text-center sm:mt-5">
                 <p class="text-[28px]/[34px] mb-4 mt-2 text-center text-main font-extrabold dark:text-dark">
-                  Verify
+                  Verify 
                   <span class="bg-[#FFF0D9] dark:bg-primary dark:text-white">
                     {" "}
-                    OTP via Phone
+                     OTP via Phone
                   </span>
                 </p>
                 <div class="mt-2">

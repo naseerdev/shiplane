@@ -48,7 +48,7 @@ const Navbar: Component = () => {
   return (
     <div>
       <nav class={`relative z-10 bg-primary `}>
-        <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-5">
+        <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-[5px] sm:p-5">
           <div class="flex h-16 justify-between" ref={containerRef!}>
             <div class="flex w-full justify-between">
               <div class="-ml-2 mr-2 flex items-center md:hidden">

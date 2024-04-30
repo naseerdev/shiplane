@@ -3,15 +3,22 @@ import RegistrationStepper from "../Registration";
 ---
 
 <div
-  class="mx-auto mt-5 md:mt-10 max-w-[511px] sm:p-[24px] py-[24px] px-[8px] divide-y divide-white/10"
+  class="mx-auto mt-0 sm:mt-5 md:mt-10 max-w-[750px] sm:p-[24px] py-[24px] px-[8px] relative"
 >
+<div class="absolute left-[-100px] top-[100px] rounded-full bg-primary dark:bg-white h-[14px] w-[14px]"></div>
   <div class="px-[24px] pb-[5px]">
     <p
-      class="text-[28px]/[34px] mb-4 mt-2 text-center text-main font-extrabold dark:text-white"
+      class="text-[2.3rem] sm:text-5xl mt-2 leading-[50px] text-center text-main font-extrabold dark:text-white"
     >
-      <span class="bg-[#FFF0D9] dark:bg-primary">All-in-one inventory, </span> fulfillment
-      and accounting software.
+    Start Yours Free <span class="bg-[#FFF0D9] dark:bg-primary"> 14 Days Trial!</span>
+    </p>
+    <p
+      class="mx-auto mt-6  pb-2 max-w-2xl text-center text-lg leading-8 text-main dark:text-white"
+    >
+    All-in-one inventory, fulfillment and accounting software.
     </p>
   </div>
+  <div class="max-w-[511px] mx-auto  ">
   <RegistrationStepper client:only="solid-js" />
+  </div>
 </div>
