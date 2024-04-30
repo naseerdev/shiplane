@@ -9,22 +9,17 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: SSH into EC2 Instance
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd landingpage_frontend
-            git pull origin main
-            npm install
-            npm run build
-            sudo cp -R dist/ /var/www/vhosts/frontend/
-            sudo service nginx restart
+      - name: Build and Deploy
+        run: |
+          cd landingpage_frontend
+          git pull origin main
+          npm install
+          npm run build
+          sudo cp -R dist/ /var/www/vhosts/frontend/
+          sudo service nginx restart
