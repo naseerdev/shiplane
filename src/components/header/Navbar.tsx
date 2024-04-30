@@ -144,9 +144,10 @@ const Navbar: Component = () => {
                 Features
               </a>
               <a
+                href="/register"
                 class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold shadow-sm hover:bg-indigo-500  hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 flex  justify-center mx-4 py-2"
               >
-                Sign In
+                Register
               </a>
               <div class="py-2 pl-3 pr-4">
                 <button
