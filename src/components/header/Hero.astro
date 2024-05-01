@@ -17,62 +17,34 @@ interface Props {
 const { showInfo, title, subTitle } = Astro.props;
 ---
 
-<div
-  class="flex justify-between mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-20"
->
+<div class="flex justify-between mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-20">
   <div class="flex flex-col gap-6">
     <div set:html={title} />
 
-    {
-      subTitle && (
-        <p class="text-lg leading-[27px] sm:w-[50%] text-main dark:text-white">
-          {subTitle}
-        </p>
-      )
-    }
+    {subTitle && <p class="text-lg leading-[27px] sm:w-[50%] text-main dark:text-white">{subTitle}</p>}
 
     {
       showInfo && (
         <>
           <div class="flex gap-5">
-            <input
-              type="email"
-              placeholder="xyz.com"
-              class="rounded-full border p-4 sm:w-[35%] w-full"
-            />
+            <input type="email" placeholder="xyz.com" class="rounded-full border p-4 sm:w-[35%] w-full" />
             <button class="rounded-full bg-primary p-4">
               <Arrow />
             </button>
           </div>
           <div class="flex items-center gap-5 flex-wrap justify-center sm:justify-start">
             <div class="isolate flex -space-x-2 overflow-hidden">
-              <Image
-                class="relative z-30 inline-block h-12 w-12 rounded-full ring-white"
-                src={avatartOne}
-                alt=""
-              />
-              <Image
-                class="relative z-20 inline-block h-12 w-12 rounded-full ring-white"
-                src={avatartTwo}
-                alt=""
-              />
-              <Image
-                class="relative z-10 inline-block h-12 w-12 rounded-full ring-white"
-                src={avatartThree}
-                alt=""
-              />
+              <Image class="relative z-30 inline-block h-12 w-12 rounded-full ring-white" src={avatartOne} alt="" />
+              <Image class="relative z-20 inline-block h-12 w-12 rounded-full ring-white" src={avatartTwo} alt="" />
+              <Image class="relative z-10 inline-block h-12 w-12 rounded-full ring-white" src={avatartThree} alt="" />
             </div>
             <div class="flex flex-col">
               <p class="text-3xl text-main font-bold dark:text-white">2,291</p>
-              <p class="text-xs sm:text-base text-main dark:text-white">
-                Happy Customers
-              </p>
+              <p class="text-xs sm:text-base text-main dark:text-white">Happy Customers</p>
             </div>
             <div class="border h-8 hidden sm:block" />
             <div class="flex flex-col">
-              <p class="text-3xl text-main font-bold dark:text-white text-center sm:text-left">
-                4.8/5
-              </p>
+              <p class="text-3xl text-main font-bold dark:text-white text-center sm:text-left">4.8/5</p>
               <div class="flex items-center">
                 {[...Array(4)].map((_) => (
                   <StarFill />
@@ -87,9 +59,7 @@ const { showInfo, title, subTitle } = Astro.props;
     }
   </div>
   <div class="hidden md:block">
-    <div
-      class="absolute top-32 right-0 object-cover flex justify-end max-w-md lg:max-w-xl xl:max-w-[none]"
-    >
+    <div class="absolute top-32 right-0 object-cover flex justify-end max-w-md lg:max-w-xl xl:max-w-[none]">
       <Image alt="" loading="eager" src={heroImage} quality="100" />
     </div>
   </div>

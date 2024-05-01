@@ -1,19 +1,11 @@
 import { createSignal, type Component } from "solid-js";
+import type { SelectMenuProps } from "../../../lib/utils/interface";
 
-
-interface Props {
-  label: string;
-}
-const SelectMenu: Component<Props> = ({ label }) => {
-  // Define options array
-  const options = [
-    "Tom Cook",
-    "Wade Cooper",
-    "John Doe",
-    "Jane Smith",
-    "Alice Johnson",
-  ];
-
+const SelectMenu: Component<SelectMenuProps> = ({
+  label,
+  options,
+  onChange,
+}) => {
   // State for selected option
   const [selectedOption, setSelectedOption] = createSignal<string>();
 
@@ -26,6 +18,7 @@ const SelectMenu: Component<Props> = ({ label }) => {
 
   const selectOption = (option: string) => {
     setSelectedOption(option);
+    onChange(option);
     setIsListOpen(false);
   };
 
@@ -51,8 +44,9 @@ const SelectMenu: Component<Props> = ({ label }) => {
           </span>
           <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <svg
-              class={`h-5 w-5 text-gray-400 ${isListOpen() ? "transform rotate-180" : ""
-                }`}
+              class={`h-5 w-5 text-gray-400 ${
+                isListOpen() ? "transform rotate-180" : ""
+              }`}
               viewBox="0 0 20 20"
               fill="none"
               stroke="#6940DA"

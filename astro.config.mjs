@@ -1,15 +1,17 @@
-import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-
 import solidJs from "@astrojs/solid-js";
+import tailwind from "@astrojs/tailwind";
+import { defineConfig } from 'astro/config';
+import { SITE_DOMAIN } from './src/lib/utils/utils';
+
 
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  integrations: [tailwind(), solidJs()],
   trailingSlash: "ignore",
   build: {
     assets: "_assets",
-    inlineStylesheets: `always`,
+    inlineStylesheets: `always`
   },
+  integrations: [solidJs(), tailwind()],
+  site: SITE_DOMAIN
 });

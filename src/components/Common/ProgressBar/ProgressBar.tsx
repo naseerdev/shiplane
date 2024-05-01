@@ -1,6 +1,6 @@
 import type { Accessor, Component } from "solid-js";
 
-interface ProgressBarProps {
+interface Props {
   currentStep: Accessor<number>;
 }
 
@@ -10,33 +10,12 @@ const steps = [
   { label: "Integration", color: "#1B2149" },
 ];
 
-//  <li class="relative">
-//    <div class="absolute inset-0 flex items-center" aria-hidden="true">
-//      <div class="h-0.5 w-full bg-gray-200 text-[17px]"></div>
-//    </div>
-//    <div
-//      class="group relative flex h-[50px] w-[50px] items-center justify-center rounded-full border-2 border-[#6940da54] bg-white hover:border-gray-400"
-//    >
-//      <span
-//        class="bg-transparent group-hover:bg-gray-300 text-[22px]"
-//        aria-hidden="true"
-//      >
-//        03
-//      </span>
-//      <span class="sr-only">Step 5</span>
-//      <span class="absolute bottom-[-30px] text-[17px] text-[#1B2149]">
-//        Integration
-//      </span>
-//    </div>
-//  </li>;
-const ProgressBar: Component<ProgressBarProps> = ({ currentStep }) => {
-  console.log("currentStep", currentStep());
+const ProgressBar: Component<Props> = ({ currentStep }) => {
   return (
     <nav aria-label="Progress">
       <ol role="list" class="flex items-center justify-center">
         {steps.map((step, index) => (
           <li class={`relative  ${index < 2 ? "pr-[4rem]  sm:pr-[8rem]" : ""}`}>
-            {/* <!-- Completed Step --> */}
             <div
               class="absolute inset-0 flex items-center left-12"
               aria-hidden="true"

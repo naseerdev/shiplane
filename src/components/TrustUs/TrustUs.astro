@@ -35,9 +35,7 @@ const avatarImages = [
     {[...Array(4)].map((_) => <StarFill />)}
     <StarDisable />
   </div>
-  <p
-    class="text-3xl md:text-5xl mt-2 leading-[50px] text-center text-main font-extrabold dark:text-white"
-  >
+  <p class="text-3xl md:text-5xl mt-2 leading-[50px] text-center text-main font-extrabold dark:text-white">
     They <span class="bg-[#FFF0D9] dark:bg-primary"> Trust Us.</span>
   </p>
 
@@ -47,12 +45,7 @@ const avatarImages = [
         {
           avatarImages.map((avatar) => (
             <div class="rounded-full mb-3 py-4 px-6 h-[70px] shadow-xl bg-white dark:shadow-[gray]">
-              <Image
-                alt="icon"
-                class="w-10 md:w-full"
-                src={avatar}
-                loading="eager"
-              />
+              <Image alt="icon" class="w-10 md:w-full" src={avatar} loading="eager" />
             </div>
           ))
         }
@@ -65,12 +58,7 @@ const avatarImages = [
         avatarImages.map((avatar) => (
           <div class="rounded-full mb-3 py-4 flex px-6 shadow-xl bg-white dark:shadow-[gray]">
             <div class="w-28 mx-auto text-center">
-              <Image
-                alt="icon"
-                class="md:w-full mx-auto"
-                src={avatar}
-                quality="100"
-              />
+              <Image alt="icon" class="md:w-full mx-auto" src={avatar} quality="100" />
             </div>
           </div>
         ))
