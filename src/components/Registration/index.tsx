@@ -43,7 +43,6 @@ const RegistrationStepper: Component = () => {
     } else {
       setOpen(true)
     }
-
   }
 
   const handleSuccess = () => {

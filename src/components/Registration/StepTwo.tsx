@@ -8,6 +8,7 @@ import {
 } from "../../lib/utils/utils";
 import InputField from "../InputField/InputField";
 import type { CompletedDataInterface, StepTwoDataInterface } from "../../lib/utils/interface";
+import PhoneNumberInput from "../PhoneNumber";
 
 interface Props {
   backStep: () => void;
@@ -68,7 +69,6 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
       setLoading(true);
 
       const companyAvailability = await checkAvailability(stepTwoFields.companyName, "company_name")
-      console.log("Phone availability", companyAvailability);
       if (companyAvailability !== "true") {
         setErrors({ ...errors, companyName: companyAvailability })
         setLoading(false)
@@ -76,7 +76,6 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
       }
 
       const phoneAvailability = await checkAvailability(stepTwoFields.phoneNumber, "phone_number")
-      console.log("Phone availability", phoneAvailability);
       if (phoneAvailability !== "true") {
         setErrors({ ...errors, phoneNumber: phoneAvailability })
         setLoading(false)
@@ -84,8 +83,6 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
       }
 
       const result = await numberVerification(stepTwoFields.phoneNumber, "phone_number");
-      
-      console.log("result", result)
 
       if (result === "pending" || result === "sent" || result === "verified") {
         setStepTwoData({
@@ -137,9 +134,8 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
         </div>
 
         <div class="mb-6">
-          <InputField
-            label="Phone Number"
-            placeholder="Enter Your Phone Number"
+          <PhoneNumberInput label="Phone Number"
+            placeholder="Enter Phone Number without Country Code"
             value={stepTwoFields.phoneNumber}
             onInput={(value) => handleChangeInput(value, "phoneNumber")}
             error={errors.phoneNumber}
@@ -188,6 +184,7 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
           }
         </button>
         <button
+          disabled={loading()}
           onClick={() => backStep()}
           class="relative items-center border-solid border-[1px] rounded-[11px] px-10 py-[11px] sm:py-[18px] w-full text-primary bg-white font-semibold shadow-sm hover:bg-primary-500 border-primary"
         >

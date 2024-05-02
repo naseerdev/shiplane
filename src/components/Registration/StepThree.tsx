@@ -119,7 +119,7 @@ const StepThree: Component<Props> = ({ nextStep, backStep, completeData }) => {
           use_as_marketing: stepThreeFields.isChecked1,
           agree_term_and_condition: stepThreeFields.isChecked2,
           email: email,
-          orders_per_month:stepThreeFields.ordersPerMonth,
+          orders_per_month: stepThreeFields.ordersPerMonth,
           integration_channels: [
             integrationId1, integrationId2
           ],
@@ -133,16 +133,10 @@ const StepThree: Component<Props> = ({ nextStep, backStep, completeData }) => {
             'Content-Type': 'application/json'
           }
         });
-        const result = await response.json();
-        console.log("result", result)
-        nextStep()
-        // if (result === "true") {
-        //   console.log("email is available")
-        //   emailAvailable(email)
-        // } else {
-        //   setError("Email is already registered");
-        //   console.log("email is not available")
-        // }
+
+        if (response.status === 200) {
+          nextStep()
+        }
 
       } catch (error) {
         console.error('An error occurred:', error);
@@ -262,6 +256,7 @@ const StepThree: Component<Props> = ({ nextStep, backStep, completeData }) => {
           }
         </button>
         <button
+          disabled={loading()}
           onClick={backStep}
           class="relative items-center border-solid border-[1px] rounded-[11px] px-10 py-[11px] sm:py-[18px] w-full text-primary bg-white font-semibold shadow-sm hover:bg-primary-500 border-primary"
         >

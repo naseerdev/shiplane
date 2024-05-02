@@ -5,9 +5,8 @@ export const verifyEmail = async (email: string) => {
   data.append("email", email());
 
   const response = await fetch(endpoints.email.verify, {
-    method: 'POST',
+    method: "POST",
     body: email,
   });
   return response;
-
 };
