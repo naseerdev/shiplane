@@ -7,7 +7,7 @@ import StepThree from "./StepThree";
 import OtpModal from "../OTP";
 import type { CompletedDataInterface, StepTwoDataInterface } from "../../lib/utils/interface";
 import { createStore } from "solid-js/store";
-import StepFour from "./StepFour";
+// import StepFour from "./StepFour";
 
 const RegistrationStepper: Component = () => {
 
@@ -65,7 +65,7 @@ const RegistrationStepper: Component = () => {
       )}
       {currentStep() === 4 && (
         <Motion.div animate={{ x: [-100, 0] }} transition={{ duration: 1 }}>
-          <StepFour />
+          {/* <StepFour /> */}
         </Motion.div>
       )}
       <Show when={open()}>
