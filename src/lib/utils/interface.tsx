@@ -28,3 +28,25 @@ export interface StepThreeStateInterface {
   isChecked1: boolean;
   isChecked2: boolean;
 }
+export interface StepTwoDataInterface {
+  name: string,
+  companyName: string,
+  phoneNumber: string,
+  companyInfo: string,
+  numberStatus: string
+}
+export interface CompletedDataInterface extends StepTwoDataInterface {
+  email: string
+}
+export interface SaleChannelListInterface {
+  id: string;
+  title: string;
+}
+export interface OrderListIntegration extends SaleChannelListInterface {
+  created_at: string;
+  updated_at: string;
+  integration_type: string;
+  integration: string;
+  is_active: boolean;
+}
+        

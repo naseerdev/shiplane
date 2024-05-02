@@ -7,6 +7,7 @@ import {
 } from "solid-js";
 import { HamburgerClose } from "../../lib/icons/HamburgerClose";
 import { HamburgerMenu } from "../../lib/icons/hamburgerMenu";
+import { CALENDLY_INVITE } from "../../lib/utils/constants";
 
 const Navbar: Component = () => {
   const [open, setOpen] = createSignal<boolean>(false);
@@ -70,7 +71,7 @@ const Navbar: Component = () => {
                   Irsal
                 </a>
               </div>
-              <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-8">
+              <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-6">
                 <a
                   href="#"
                   class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white font-gilroy-bold"
@@ -96,7 +97,8 @@ const Navbar: Component = () => {
                   Features
                 </a>
                 <a
-                  href="#"
+                  href={CALENDLY_INVITE}
+                  target="_blank"
                   class="relative items-center rounded-full px-10 my-2 bg-[#F2AF4C] font-semibold shadow-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 flex justify-center font-gilroy-semibold"
                 >
                   Get A Demo
