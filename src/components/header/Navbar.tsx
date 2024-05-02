@@ -70,7 +70,7 @@ const Navbar: Component = () => {
                   Irsal
                 </a>
               </div>
-              <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-8">
+              <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-6">
                 <a
                   href="#"
                   class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white font-gilroy-bold"
