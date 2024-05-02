@@ -32,6 +32,9 @@ const StepFour: Component = ({ }) => {
           <div class="mb-6">
             <Completed />
           </div>
+          <p class="mx-auto pb-2 text-center text-dark text-[24px] leading-5 font-semibold  dark:text-white">
+          Estimated Time : <span class="text-primary"> 02:00</span>
+    </p>
         </div>
 
       </div>
