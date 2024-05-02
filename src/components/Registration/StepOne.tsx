@@ -1,7 +1,6 @@
 import { type Accessor, type Component, createSignal } from "solid-js";
-import InputField from "../InputField/InputField";
 import { checkAvailability, validateEmail } from "../../lib/utils/utils";
-import { endpoints } from "../../lib/endpoints";
+import InputField from "../InputField/InputField";
 
 interface Props {
   emailAvailable: (email: Accessor<string>) => void;
