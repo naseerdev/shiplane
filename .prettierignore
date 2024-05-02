@@ -1,0 +1,13 @@
+dist
+node_modules
+
+# Ignore everything recursively
+*
+
+# But not these files
+!*.astro
+!*.ts
+!*.scss
+
+# Check subdirectories too
+!*/
