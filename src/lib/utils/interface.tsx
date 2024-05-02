@@ -33,6 +33,7 @@ export interface StepTwoDataInterface {
   companyName: string,
   phoneNumber: string,
   companyInfo: string,
+  numberStatus: string
 }
 export interface CompletedDataInterface extends StepTwoDataInterface {
   email: string

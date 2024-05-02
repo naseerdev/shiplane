@@ -1,11 +1,12 @@
 import { HeaderImg } from "../../lib/icons/HeaderImg";
-import { checkStartTrialLocation } from "../../lib/utils/utils";
+import { checkHomeLocation } from "../../lib/utils/utils";
 import Navbar from "./Navbar";
 
 const Header = () => {
+  console.log("Header", window.location.pathname)
   return (
     <div class="relative">
-      {!checkStartTrialLocation() && <HeaderImg />}
+      {checkHomeLocation() && <HeaderImg />}
       <Navbar />
     </div>
   );

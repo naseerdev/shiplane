@@ -2,8 +2,7 @@ import { endpoints } from "../endpoints";
 import type { OrderListIntegration, SaleChannelListInterface } from "./interface";
 
 export const SITE_DOMAIN = "https://irsal.pk";
-export const checkStartTrialLocation = () =>
-  window.location.pathname === "/start-free-trial" || window.location.pathname === "/start-free-trial/";
+export const checkHomeLocation = () => window.location.pathname === "/";
 export const validateEmail = (email: string): boolean => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
@@ -45,7 +44,7 @@ export const checkAvailability = async (value: string, key: string): Promise<str
   }
 }
 
-export const numberVerification = async (value: string, key: string) => {
+export const numberVerification = async (value: string, key: string): Promise<string> => {
   try {
     const data = new FormData();
     data.append(key, value);
@@ -54,12 +53,15 @@ export const numberVerification = async (value: string, key: string) => {
       body: data,
     });
     const result = await response.json();
-    console.log("Number", response, result);
-    // if (result?.message === "Available") {
-    //   return "true";
-    // } else {
-    //   return result.error[key][0]
-    // }
+    console.log("Number", result.otp_delivery_status);
+
+    if (result?.otp_delivery_status === "verified") {
+      return "verified";
+    } else if (result?.otp_delivery_status === "sent" || result?.otp_delivery_status === "pending") {
+      return "sent"
+    } else {
+      return "failed"
+    }
   } catch (error) {
     console.error('An error occurred', error);
     return `${error}`;

@@ -1,17 +1,15 @@
 import { createEffect, createSignal, Show, type Component } from "solid-js";
 import { createStore } from "solid-js/store";
+import { endpoints } from "../../lib/endpoints";
 import { CheckFill } from "../../lib/icons/CheckFill";
 import { CheckLite } from "../../lib/icons/CheckLite";
 import {
-  ORDERED_PER_MONTH_OPTIONS,
-  SALE_CHANNEL_OPTIONS,
-  SHIP_ORDER_OPTIONS,
+  ORDERED_PER_MONTH_OPTIONS
 } from "../../lib/utils/constants";
 import type { CompletedDataInterface, SaleChannelListInterface, StepThreeStateInterface } from "../../lib/utils/interface";
+import { listSaleChannel } from "../../lib/utils/utils";
 import SelectMenu from "../Common/SelectMenu";
 import InputField from "../InputField/InputField";
-import { listSaleChannel } from "../../lib/utils/utils";
-import { endpoints } from "../../lib/endpoints";
 
 interface Props {
   nextStep: () => void;
@@ -121,6 +119,7 @@ const StepThree: Component<Props> = ({ nextStep, backStep, completeData }) => {
           use_as_marketing: stepThreeFields.isChecked1,
           agree_term_and_condition: stepThreeFields.isChecked2,
           email: email,
+          orders_per_month:stepThreeFields.ordersPerMonth,
           integration_channels: [
             integrationId1, integrationId2
           ],
@@ -248,7 +247,8 @@ const StepThree: Component<Props> = ({ nextStep, backStep, completeData }) => {
         </Show>
         <button
           onClick={handleNextButton}
-          class="relative items-center tracking-wide rounded-[11px] px-10 py-[11px] sm:py-[18px] my-4 w-full text-white bg-primary font-semibold shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          disabled={loading()}
+          class="relative flex justify-center items-center tracking-wide rounded-[11px] px-10 py-[11px] sm:py-[18px] my-4 w-full text-white bg-primary font-semibold shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {
             loading() ?

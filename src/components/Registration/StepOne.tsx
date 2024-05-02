@@ -5,10 +5,11 @@ import { endpoints } from "../../lib/endpoints";
 
 interface Props {
   emailAvailable: (email: Accessor<string>) => void;
+  currentEmail: string;
 }
 
-const StepOne: Component<Props> = ({ emailAvailable }) => {
-  const [email, setEmail] = createSignal("");
+const StepOne: Component<Props> = ({ emailAvailable, currentEmail }) => {
+  const [email, setEmail] = createSignal(currentEmail);
   const [error, setError] = createSignal<string>("");
   const [loading, setLoading] = createSignal<boolean>(false);
 
@@ -61,6 +62,7 @@ const StepOne: Component<Props> = ({ emailAvailable }) => {
 
         <button
           type="submit"
+          disabled={loading()}
           class="relative flex justify-center items-center tracking-wide rounded-[11px] px-10 py-[11px] sm:py-[18px] w-full text-white bg-primary font-semibold shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           {

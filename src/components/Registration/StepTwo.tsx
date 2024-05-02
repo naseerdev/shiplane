@@ -7,22 +7,17 @@ import {
   validatePhoneNumber,
 } from "../../lib/utils/utils";
 import InputField from "../InputField/InputField";
-import type { StepTwoDataInterface } from "../../lib/utils/interface";
+import type { CompletedDataInterface, StepTwoDataInterface } from "../../lib/utils/interface";
 
 interface Props {
   backStep: () => void;
   setStepTwoData: (value: StepTwoDataInterface) => void;
+  currentData: CompletedDataInterface
 }
-const StepTwo: Component<Props> = ({ backStep, setStepTwoData }) => {
+const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) => {
+  const { email, ...other } = currentData;
   const [loading, setLoading] = createSignal<boolean>(false);
-  const [stepTwoFields, setStepTwoFields] = createStore<{
-    [key: string]: string;
-  }>({
-    name: "",
-    companyName: "",
-    phoneNumber: "",
-    companyInfo: "",
-  });
+  const [stepTwoFields, setStepTwoFields] = createStore<StepTwoDataInterface>(other);
   const [errors, setErrors] = createStore<{ [key: string]: string }>({
     name: "",
     companyName: "",
@@ -88,15 +83,24 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData }) => {
         return;
       }
 
-      await numberVerification(stepTwoFields.phoneNumber, "phone_number");
+      const result = await numberVerification(stepTwoFields.phoneNumber, "phone_number");
+      
+      console.log("result", result)
 
+      if (result === "pending" || result === "sent" || result === "verified") {
+        setStepTwoData({
+          name: stepTwoFields.name,
+          companyName: stepTwoFields.companyName,
+          phoneNumber: stepTwoFields.phoneNumber,
+          companyInfo: stepTwoFields.companyInfo,
+          numberStatus: result
+        });
+
+      } else {
+        setErrors({ ...errors, phoneNumber: "Something went wrong with phone number verification please try again" })
+      }
       setLoading(false)
-      setStepTwoData({
-        name: stepTwoFields.name,
-        companyName: stepTwoFields.companyName,
-        phoneNumber: stepTwoFields.phoneNumber,
-        companyInfo: stepTwoFields.companyInfo,
-      });
+
     }
   };
 
@@ -169,6 +173,7 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData }) => {
 
         <button
           onClick={() => handleNextButton()}
+          disabled={loading()}
           class="relative flex justify-center items-center tracking-wide rounded-[11px] px-10 py-[11px] sm:py-[18px]  mt-5 mb-3 w-full text-white bg-primary font-semibold shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           {

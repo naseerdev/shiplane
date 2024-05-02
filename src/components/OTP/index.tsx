@@ -29,12 +29,11 @@ const OtpModal: Component<Props> = ({ otpVerified, closeModal, phoneNumber }) =>
         });
 
         const result = await response.json();
-
-        if (response.status === 200) {
+        
+        if (response.status === 200 && result.otp_delivery_status === "verified") {
           otpVerified();
         } else {
           setError(result.error.otp[0]);
-          otpVerified();
         }
 
       } catch (error) {
@@ -113,6 +112,7 @@ const OtpModal: Component<Props> = ({ otpVerified, closeModal, phoneNumber }) =>
               <div class="mt-5 sm:mt-6">
                 <button
                   onClick={handleSubmit}
+                  disabled={loading()}
                   class="relative flex justify-center items-center tracking-wide text-[16px] rounded-[11px] px-10 py-[9px] my-1 w-full text-white bg-primary font-normal shadow-sm hover:bg-primary-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   {
