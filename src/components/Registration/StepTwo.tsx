@@ -124,6 +124,9 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
             onInput={(value) => handleChangeInput(value, "companyName")}
             error={errors.companyName}
           />
+          <Show when={!!stepTwoFields.companyName}>
+            <p class="text-gray-500">Site URL: {stepTwoFields.companyName.replace(/\s/g, '')}.irsal.pk</p>
+          </Show>
           <Show when={errors.companyName}>
             <p class="text-red-500">{errors.companyName}</p>
           </Show>
