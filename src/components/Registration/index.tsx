@@ -1,12 +1,12 @@
 import { createSignal, Show, type Accessor, type Component } from "solid-js";
-import ProgressBar from "../Common/ProgressBar/ProgressBar";
-import StepOne from "./StepOne";
-import StepTwo from "./StepTwo";
-import { Motion } from "solid-motionone";
-import StepThree from "./StepThree";
-import OtpModal from "../OTP";
-import type { CompletedDataInterface, StepTwoDataInterface } from "../../lib/utils/interface";
 import { createStore } from "solid-js/store";
+import { Motion } from "solid-motionone";
+import type { CompletedDataInterface, StepTwoDataInterface } from "../../lib/utils/interface";
+import ProgressBar from "../Common/ProgressBar/ProgressBar";
+import OtpModal from "../OTP";
+import StepOne from "./StepOne";
+import StepThree from "./StepThree";
+import StepTwo from "./StepTwo";
 
 const RegistrationStepper: Component = () => {
 
@@ -19,10 +19,12 @@ const RegistrationStepper: Component = () => {
   const goToNextStep = () => {
     setOpen(false);
     setCurrentStep(currentStep() + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const oneBackStep = () => {
     setCurrentStep(currentStep() - 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const setStepOneEmail = (email: Accessor<string>) => {

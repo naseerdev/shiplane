@@ -23,15 +23,10 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
     name: "",
     companyName: "",
     phoneNumber: "",
-    companyInfo: "",
   });
 
   const checkValidation = (): boolean => {
     const nameError = !!stepTwoFields.name ? "" : "Name is required";
-
-    const companyInfoError = !!stepTwoFields.companyInfo
-      ? ""
-      : "Company Information is required";
 
     const companyNameError = !!stepTwoFields.companyName
       ? !validateCompanyName(stepTwoFields.companyName)
@@ -49,14 +44,12 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
       name: nameError,
       companyName: companyNameError,
       phoneNumber: phoneNumberError,
-      companyInfo: companyInfoError,
     });
 
     if (
       !nameError &&
       !companyNameError &&
-      !phoneNumberError &&
-      !companyInfoError
+      !phoneNumberError
     ) {
       return true
     } else return false
@@ -72,13 +65,15 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
       if (companyAvailability !== "true") {
         setErrors({ ...errors, companyName: companyAvailability })
         setLoading(false)
-        return;
       }
 
       const phoneAvailability = await checkAvailability(stepTwoFields.phoneNumber, "phone_number")
       if (phoneAvailability !== "true") {
         setErrors({ ...errors, phoneNumber: phoneAvailability })
         setLoading(false)
+      }
+      if (phoneAvailability !== "true" || companyAvailability !== "true") {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
 
@@ -95,6 +90,7 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
 
       } else {
         setErrors({ ...errors, phoneNumber: "Something went wrong with phone number verification please try again" })
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       setLoading(false)
 
@@ -128,6 +124,9 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
             onInput={(value) => handleChangeInput(value, "companyName")}
             error={errors.companyName}
           />
+          <Show when={!!stepTwoFields.companyName}>
+            <p class="text-gray-500">Site URL: {stepTwoFields.companyName.replace(/\s/g, '')}.irsal.pk</p>
+          </Show>
           <Show when={errors.companyName}>
             <p class="text-red-500">{errors.companyName}</p>
           </Show>
