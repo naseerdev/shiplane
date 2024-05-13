@@ -133,30 +133,30 @@ const Navbar: Component = () => {
         </div>
         </div>
 
-        <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-16` : `top-[-100%]`}`}>
+        <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-[4.4rem]` : `top-[-100%]`}`}>
           <div class="md:hidden  absolute w-full" id="mobile-menu">
             <div class="space-y-1 pb-3 pt-2 bg-primary h-screen">
               <a
                 href="#"
-                class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6"
+                class="block border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6 mx-4 rounded-full text-center"
               >
                 Home
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="rounded-full  mx-4 text-center block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 About Us
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="rounded-full  mx-4 text-center block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Pricing
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="rounded-full mx-4  text-center block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Features
               </a>
@@ -173,7 +173,7 @@ const Navbar: Component = () => {
                 Start Your Free Trial
               </a>
 
-              <div class="py-2 pl-3 pr-4">
+              <div class="py-2 pl-3 pr-4 text-center">
                 <button
                   type="button"
                   class={`relative items-center  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2  border-1 border ${isDarkMode() ? "bg-indigo-600" : "bg-gray-200"
