@@ -48,7 +48,7 @@ const Navbar: Component = () => {
 
   return (
     <div>
-      <nav class={`md:relative fixed top-0 w-full`}>
+      <nav class={`md:relative fixed top-0 w-full z-[2]`}>
         <div class="w-full z-[100] relative bg-primary">
 
         
