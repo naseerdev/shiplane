@@ -48,7 +48,10 @@ const Navbar: Component = () => {
 
   return (
     <div>
-      <nav class={`relative z-10 bg-primary `}>
+      <nav class={`md:relative fixed top-0 w-full`}>
+        <div class="w-full z-[100] relative bg-primary">
+
+        
         <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-[5px] sm:p-5">
           <div class="flex h-16 justify-between" ref={containerRef!}>
             <div class="flex w-full justify-between">
@@ -128,9 +131,10 @@ const Navbar: Component = () => {
             </div>
           </div>
         </div>
+        </div>
 
-        <div class={`${open() ? `block` : `hidden`}`}>
-          <div class="md:hidden  absolute w-full px-4" id="mobile-menu">
+        <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-16` : `top-[-400px]`}`}>
+          <div class="md:hidden  absolute w-full" id="mobile-menu">
             <div class="space-y-1 pb-3 pt-2 bg-primary  rounded-lg">
               <a
                 href="#"
