@@ -48,7 +48,10 @@ const Navbar: Component = () => {
 
   return (
     <div>
-      <nav class={`relative z-10 bg-primary `}>
+      <nav class={`md:relative fixed top-0 w-full z-[2]`}>
+        <div class="w-full z-[100] relative bg-primary">
+
+        
         <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-[5px] sm:p-5">
           <div class="flex h-16 justify-between" ref={containerRef!}>
             <div class="flex w-full justify-between">
@@ -128,31 +131,32 @@ const Navbar: Component = () => {
             </div>
           </div>
         </div>
+        </div>
 
-        <div class={`${open() ? `block` : `hidden`}`}>
-          <div class="md:hidden  absolute w-full px-4" id="mobile-menu">
-            <div class="space-y-1 pb-3 pt-2 bg-primary  rounded-lg">
+        <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-[4.4rem]` : `top-[-100%]`}`}>
+          <div class="md:hidden  absolute w-full" id="mobile-menu">
+            <div class="space-y-1 pb-3 pt-2 bg-primary h-screen">
               <a
                 href="#"
-                class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6"
+                class="block border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6 mx-4 rounded-full text-center"
               >
                 Home
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="rounded-full  mx-4 text-center block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 About Us
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="rounded-full  mx-4 text-center block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Pricing
               </a>
               <a
                 href="#"
-                class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+                class="rounded-full mx-4  text-center block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-[#fff] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
                 Features
               </a>
@@ -169,7 +173,7 @@ const Navbar: Component = () => {
                 Start Your Free Trial
               </a>
 
-              <div class="py-2 pl-3 pr-4">
+              <div class="py-2 pl-3 pr-4 text-center">
                 <button
                   type="button"
                   class={`relative items-center  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-white transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2  border-1 border ${isDarkMode() ? "bg-indigo-600" : "bg-gray-200"
