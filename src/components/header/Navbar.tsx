@@ -133,9 +133,9 @@ const Navbar: Component = () => {
         </div>
         </div>
 
-        <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-16` : `top-[-400px]`}`}>
+        <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-16` : `top-[-100%]`}`}>
           <div class="md:hidden  absolute w-full" id="mobile-menu">
-            <div class="space-y-1 pb-3 pt-2 bg-primary  rounded-lg">
+            <div class="space-y-1 pb-3 pt-2 bg-primary h-screen">
               <a
                 href="#"
                 class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6"
