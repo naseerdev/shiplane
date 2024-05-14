@@ -61,18 +61,12 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
     if (validationResult) {
       setLoading(true);
 
-      const companyAvailability = await checkAvailability(stepTwoFields.companyName, "company_name")
-      if (companyAvailability !== "true") {
-        setErrors({ ...errors, companyName: companyAvailability })
-        setLoading(false)
-      }
-
       const phoneAvailability = await checkAvailability(stepTwoFields.phoneNumber, "phone_number")
       if (phoneAvailability !== "true") {
         setErrors({ ...errors, phoneNumber: phoneAvailability })
         setLoading(false)
       }
-      if (phoneAvailability !== "true" || companyAvailability !== "true") {
+      if (phoneAvailability !== "true") {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
@@ -124,9 +118,6 @@ const StepTwo: Component<Props> = ({ backStep, setStepTwoData, currentData }) =>
             onInput={(value) => handleChangeInput(value, "companyName")}
             error={errors.companyName}
           />
-          <Show when={!!stepTwoFields.companyName}>
-            <p class="text-gray-500">Site URL: {stepTwoFields.companyName.replace(/\s/g, '')}.irsal.pk</p>
-          </Show>
           <Show when={errors.companyName}>
             <p class="text-red-500">{errors.companyName}</p>
           </Show>
