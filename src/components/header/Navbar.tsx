@@ -49,7 +49,7 @@ const Navbar: Component = () => {
   return (
     <div>
       <nav class={`md:relative fixed top-0 w-full z-[2]`}>
-        <div class="w-full z-[100] relative bg-primary">
+        <div class="w-full z-[100] relative bg-white shadow dark:bg-[#212238]">
 
         
         <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-[5px] sm:p-5">
@@ -70,32 +70,32 @@ const Navbar: Component = () => {
                 </button>
               </div>
               <div class="flex flex-shrink-0 items-center">
-                <a href="/" class="text-[30px] font-bold text-white">
+                <a href="/" class="text-[30px] font-bold text-[#1B2149] dark:text-white">
                   Irsal
                 </a>
               </div>
               <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-6">
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-sm font-bold text-white font-gilroy-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß font-bold text-[#1B2149] dark:text-white font-gilroy-bold"
                 >
                   Home
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white  hover:font-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
                 >
                   About Us
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white  hover:font-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
                 >
                   Pricing
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-white  hover:font-bold"
+                  class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
                 >
                   Features
                 </a>
@@ -108,7 +108,7 @@ const Navbar: Component = () => {
                 </a>
                 <a
                   href="/start-free-trial"
-                  class="relative items-center rounded-full px-10 my-2 text-primary bg-white font-semibold shadow-sm hover:bg-primary  hover:text-white border-2 hover:border-white flex justify-center font-gilroy-semibold"
+                  class="relative items-center rounded-full px-10 my-2 border-primary text-white bg-primary font-semibold shadow-sm hover:bg-primary  hover:text-white border-2 hover:border-primary flex justify-center font-gilroy-semibold"
                 >
                   Start Your Free Trial
                 </a>
