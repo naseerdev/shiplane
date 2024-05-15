@@ -51,91 +51,91 @@ const Navbar: Component = () => {
       <nav class={`md:relative fixed top-0 w-full z-[2]`}>
         <div class="w-full z-[100] relative bg-white shadow dark:bg-[#212238]">
 
-        
-        <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-[5px] sm:p-5">
-          <div class="flex h-16 justify-between" ref={containerRef!}>
-            <div class="flex w-full justify-between">
-              <div class="-ml-2 mr-2 flex items-center md:hidden">
-                <button
-                  onClick={() => setOpen(!open())}
-                  type="button"
-                  class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                  aria-controls="mobile-menu"
-                  aria-expanded="false"
-                >
-                  <span class="absolute -inset-0.5"></span>
-                  <span class="sr-only">Open main menu</span>
 
-                  {!open() ? <HamburgerMenu /> : <HamburgerClose />}
-                </button>
-              </div>
-              <div class="flex flex-shrink-0 items-center">
-                <a href="/" class="text-[30px] font-bold text-[#1B2149] dark:text-white">
-                  Irsal
-                </a>
-              </div>
-              <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-6">
-                <a
-                  href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß font-bold text-[#1B2149] dark:text-white font-gilroy-bold"
-                >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
-                >
-                  About Us
-                </a>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
-                >
-                  Pricing
-                </a>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
-                >
-                  Features
-                </a>
-                <a
-                  href={CALENDLY_INVITE}
-                  target="_blank"
-                  class="relative items-center rounded-full px-10 my-2 bg-[#F2AF4C] font-semibold shadow-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 flex justify-center font-gilroy-semibold"
-                >
-                  Get A Demo
-                </a>
-                <a
-                  href="/start-free-trial"
-                  class="relative items-center rounded-full px-10 my-2 border-primary text-white bg-primary font-semibold shadow-sm hover:bg-primary  hover:text-white border-2 hover:border-primary flex justify-center font-gilroy-semibold"
-                >
-                  Start Your Free Trial
-                </a>
-                <button
-                  type="button"
-                  class={`relative items-center mt-5  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${isDarkMode() ? "bg-indigo-600" : "bg-gray-200"
-                    }`}
-                  role="switch"
-                  aria-checked="true"
-                  onClick={handleeChangeDarkMode}
-                >
-                  <span class="sr-only">Use setting</span>
-                  <span
-                    aria-hidden="true"
-                    class={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${isDarkMode() ? "translate-x-5" : "translate-x-0"
+          <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 p-[5px] sm:p-5">
+            <div class="flex h-16 justify-between" ref={containerRef!}>
+              <div class="flex w-full justify-between">
+                <div class="-ml-2 mr-2 flex items-center md:hidden">
+                  <button
+                    onClick={() => setOpen(!open())}
+                    type="button"
+                    class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                  >
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Open main menu</span>
+
+                    {!open() ? <HamburgerMenu /> : <HamburgerClose />}
+                  </button>
+                </div>
+                <div class="flex flex-shrink-0 items-center">
+                  <a href="/" class="text-[30px] font-bold text-[#1B2149] dark:text-white">
+                    Irsal
+                  </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:justify-end md:space-x-6">
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-1 pt-1 text-smß font-bold text-[#1B2149] dark:text-white font-gilroy-bold"
+                  >
+                    Home
+                  </a>
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
+                  >
+                    About Us
+                  </a>
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
+                  >
+                    Pricing
+                  </a>
+                  <a
+                    href="#"
+                    class="inline-flex items-center px-1 pt-1 text-smß text-[#1B2149] dark:text-white  hover:font-bold"
+                  >
+                    Features
+                  </a>
+                  <a
+                    href={CALENDLY_INVITE}
+                    target="_blank"
+                    class="relative items-center rounded-full px-10 my-2 bg-[#F2AF4C] font-semibold shadow-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 flex justify-center font-gilroy-semibold"
+                  >
+                    Get A Demo
+                  </a>
+                  <a
+                    href="/start-free-trial"
+                    class="relative items-center rounded-full px-10 my-2 border-primary text-white bg-primary font-semibold shadow-sm hover:bg-primary  hover:text-white border-2 hover:border-primary flex justify-center font-gilroy-semibold"
+                  >
+                    Start Your Free Trial
+                  </a>
+                  <button
+                    type="button"
+                    class={`relative items-center mt-5  inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ${isDarkMode() ? "bg-indigo-600" : "bg-gray-200"
                       }`}
-                  ></span>
-                </button>
+                    role="switch"
+                    aria-checked="true"
+                    onClick={handleeChangeDarkMode}
+                  >
+                    <span class="sr-only">Use setting</span>
+                    <span
+                      aria-hidden="true"
+                      class={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${isDarkMode() ? "translate-x-5" : "translate-x-0"
+                        }`}
+                    ></span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
 
         <div class={`fixed w-full transition-all ease-linear duration-1000 z-[9] ${open() ? `top-[4.4rem]` : `top-[-100%]`}`}>
           <div class="md:hidden  absolute w-full" id="mobile-menu">
-            <div class="space-y-1 pb-3 pt-2 bg-primary h-screen">
+            <div class="space-y-1 pb-3 pt-4 sm:pt-2 bg-primary h-screen">
               <a
                 href="#"
                 class="block border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6 mx-4 rounded-full text-center"
